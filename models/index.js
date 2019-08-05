@@ -1,4 +1,4 @@
 module.exports = {
     User: require("./Users"),
-    Meal: require("./MealInfo")
+    Meal: require("./VehicleInfo")
   };
