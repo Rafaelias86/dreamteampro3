@@ -5,16 +5,16 @@ const transport = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "SCKitchen1864@gmail.com",
-    pass: "duwomen24",
+    user: "ezvalet@gmail.com",
+    pass: "",
   },
 });
 
 const mailOptions = {
-  from: '"Second Chance Kitchen" <SCKitchen1864@gmail.com>',
-  to: ["sbarenz@mac.com", "SCKitchen1864@yahoo.com", "nancyeb27@yahoo.com"],
-  subject: "SC Kitchen has a new listing!",
-  text: "Please come visit our website to see the new offering! Thanks much, SC Kitchen"
+  from: '"EZ Valet" <ezvalet@gmail.com>',
+  to: ["asinghempire@gmail.com", "ezvalet@gmail.com", "asinghempire@yahoo.com"],
+  subject: "EZ Valet- A new vahicle has been register!",
+  text: "Test"
 };
 // Defining methods for the booksController
 module.exports = {
