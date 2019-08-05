@@ -5,16 +5,16 @@ const transport = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: "ezvalet@gmail.com",
-    pass: "",
+    user: "ezvalet2019@gmail.com",
+    pass: "ezvalet1234",
   },
 });
 
 const mailOptions = {
-  from: '"EZ Valet" <ezvalet@gmail.com>',
-  to: ["asinghempire@gmail.com", "ezvalet@gmail.com", "asinghempire@yahoo.com"],
+  from: '"EZ Valet" <ezvalet2019@gmail.com>',
+  to: ["asinghempire@gmail.com", "ezvalet2019@gmail.com"],
   subject: "EZ Valet- A new vahicle has been register!",
-  text: "Test"
+  text: "admin1 has succussfully register a new vahicle. "
 };
 // Defining methods for the booksController
 module.exports = {
@@ -32,10 +32,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log("here's the create stuff")
+    console.log("here's the create function")
     // pullEmails();
     transport.sendMail(mailOptions, function (error, info) {
-      console.log("this is the transport business#1")
+      console.log("transport is trying to sendMail.")
       if (error) {
         return console.log(error);
       }
