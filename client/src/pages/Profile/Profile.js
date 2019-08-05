@@ -43,7 +43,7 @@ class Profile extends Component {
             user: user.data.user
           });
           console.log("log in successful");
-          window.location.href = '/vehicle';
+          window.location.href = '/parkedvehicle';
         } else {
           console.log("something went wrong :(")
           console.log(user.data);

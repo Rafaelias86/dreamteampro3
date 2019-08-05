@@ -27,14 +27,14 @@ export default {
   },
 
   saveVehicle: function(vehicleinfo){
-      return axios.post("/api/users/vehicle",vehicleinfo)
+      return axios.post("/api/users/parkedvehicle",vehicleinfo)
   },
   getVehicles: function(){
-    return axios.get("/api/users/vehicle")
+    return axios.get("/api/users/parkedvehicle")
   },
 
   // claimIt: function(){
-  //   return axios.get("/api/users/vehicle")
+  //   return axios.get("/api/users/parkedvehicle")
   // }
 
 };

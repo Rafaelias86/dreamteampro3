@@ -42,7 +42,7 @@ const vehicleSchema = new Schema({
   comments: {
   type: String,
   unique: true,
-  required: [true, "comments is required"]
+  required: [true, "comment is required"]
 },
 
 claimit: {

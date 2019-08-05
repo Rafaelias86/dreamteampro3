@@ -121,7 +121,7 @@ class Vehicle extends Component {
                         <h3 id="userTitle">Welcome {this.state.user.username}</h3>
                         <div>
                             <Row>
-                                <Col lg-4>
+                                <Col className="lg-4">
                                     <h4 className="vehicletext">Add a new vehicle</h4>
                                     <Form>
                                         <FormGroup>
@@ -189,8 +189,6 @@ class Vehicle extends Component {
                                                                 <td>{vehicle.comments}</td>
                                                                 <td key={vehicle._id}><Timer/></td>
                                                                 
-                                                                
-                
                                                                 </tr>
  
                                                             )

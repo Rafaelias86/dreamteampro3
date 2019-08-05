@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 const nodemailer = require('nodemailer');
 const crypt = require('../../../../models/crypt');
 const emailDB = require("../../../../models/Users");
-const encryptedPassword = '126891c03fef8f5fc1e1d8714d82bb';
+// const encryptedPassword = '126891c03fef8f5fc1e1d8714d82bb';
 var emailList = [];
 
 function pullEmails() {
@@ -10,17 +11,17 @@ function pullEmails() {
 const transport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'SCKitchen1864@gmail.com',
-        pass: crypt.decrypt(encryptedPassword),
+        user: "ezvalet2019@gmail.com",
+        pass: "ezvalet1234",
     },
 });
 function sendEmail() {
     pullEmails();
     const mailOptions = {
-        from: 'SCKitchen1864@gmail.com',
+        from: 'ezvalet2019@gmail.com',
         to: emailList,
-        subject: "SC Kitchen has a new listing!",
-        text: "Please come visit our website to see the new offering! Thanks much, SC Kitchen"
+        subject: "EZ Valet- A new vahicle has been register!",
+        text: "admin1 has succussfully register a new vahicle. "
     };
     transport.sendMail(mailOptions, (error) => {
         if (error) {
