@@ -165,30 +165,38 @@ class Vehicle extends Component {
                                         <h4 className= "claimtext">Retrieve a vehicle</h4>
                                         {this.state.vehicles.length ? (
                                             <div>
-                                                <table className="table table-striped" style={{ marginTop: 20 }}>
-                                                    <thead>
+                                                <table className="table table-bordered" style={{ marginTop: 20 }}>
+                                                    <thead class="thead-dark">
                                                         <tr>
-                                                            <th>Location</th>
-                                                            <th>Name</th>
-                                                            <th>Phone #</th>
-                                                            <th>Vehicle Info</th>
-                                                            <th>Space</th>
-                                                            <th>Comments</th>
-                                                            <th>Return</th>
-                                                            <th>Update</th>
+                                                            {/* <th>ID</th> */}
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Location</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Phone #</th>
+                                                            <th scope="col">Vehicle Info</th>
+                                                            <th scope="col">Space</th>
+                                                            <th scope="col">ParkedAt</th>
+                                                            <th scope="col">Comments</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Return</th>
+                                                            
                                                         </tr>
                                                         {this.state.vehicles.map(vehicle => {
                                                             return (
                                                                 <tr>
-
+                                                                {/* <td>{vehicle._id}</td> */}
+                                                                <td>{vehicle.__v+1+"."}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
                                                                 <td>{vehicle.vehicleinfo}</td>
-                                                                <td>{vehicle.spaces}</td>
+                                                                <td contenteditable="true" className = "spaceClass">{vehicle.spaces}</td>
+                                                                <td>{vehicle.createdAt}</td>
                                                                 <td>{vehicle.comments}</td>
-                                                                <td key={vehicle._id}><Timer/></td>
-                                                                
+                                                                {/* <td key={vehicle._id}><Timer/></td> */}
+                                                                <td><button className="btn btn-primary">Update</button></td>   
+                                                                <td><button className="btn btn-danger">Return</button></td>    
+                                                                                           
                                                                 </tr>
  
                                                             )

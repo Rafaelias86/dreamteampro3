@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CountdownTimer extends React.Component {
   constructor() {
     super();
-    this.state = { time: {}, seconds: 7200 };
+    this.state = { time: {}, seconds: 1 };
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
@@ -32,7 +32,7 @@ class CountdownTimer extends React.Component {
   }
   countDown() {
     // Remove one second, set state so a re-render happens.
-    let seconds = this.state.seconds - 1;
+    let seconds = this.state.seconds + 1;
     this.setState({
       time: this.secondsToTime(seconds),
       seconds: seconds,
@@ -45,7 +45,7 @@ class CountdownTimer extends React.Component {
   render() {
     return (
       <div>
-<button className="timerbtn btn btn-success" onClick={this.startTimer} > CLAIM IT</button>
+      <button className="timerbtn btn btn-success" onClick={this.startTimer} > Start Timer</button>
        &nbsp; &nbsp; {this.state.time.h}:{this.state.time.m}:{this.state.time.s}
       </div>
     );

@@ -47,7 +47,7 @@ export default class Navigation extends Component {
                 <Navbar className="navbar bg-dark text-center" light expand="md">
                     {/* <NavbarBrand href="/" className="titleFont"> EZValet</NavbarBrand> */}
                     <div className="sck">
-                        <img src={logo} width="75" height="50"/> EZ Valet 
+                        <img src={logo} width="75" height="50"/> EZ Valpark 
                     </div>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -87,7 +87,7 @@ export default class Navigation extends Component {
                 <Wrapper>
                     <Jumbotron >
                         <Container >
-                            <h1 className="text-primary" id="text-primary">EZ Valet</h1>
+                            <h1 className="text-primary" id="text-primary">EZ Valpark</h1>
                             <p className="text-primary" id="text-primary"><strong>Fully ticketless valet solution<strong/></strong></p>
                         </Container>
                     </Jumbotron>
