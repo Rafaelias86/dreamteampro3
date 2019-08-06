@@ -33,14 +33,15 @@ module.exports = {
   },
   create: function (req, res) {
     console.log("here's the create function")
+    console.log(req.body)
     // pullEmails();
-    transport.sendMail(mailOptions, function (error, info) {
-      console.log("transport is trying to sendMail.")
-      if (error) {
-        return console.log(error);
-      }
-      console.log('Message sent: ' + info.response);
-    });
+    // transport.sendMail(mailOptions, function (error, info) {
+    //   console.log("transport is trying to sendMail.")
+    //   if (error) {
+    //     return console.log(error);
+    //   }
+    //   console.log('Message sent: ' + info.response);
+    // });
     db.Vehicle
       .create(req.body)
       .then(dbModel => res.json(dbModel))
