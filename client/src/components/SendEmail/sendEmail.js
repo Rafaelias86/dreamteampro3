@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 const crypt = require('../../../../models/crypt');
 const emailDB = require("../../../../models/Users");
@@ -11,8 +12,8 @@ function pullEmails() {
 const transport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: "ezvalet2019@gmail.com",
-        pass: "ezvalet1234",
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
     },
 });
 function sendEmail() {
