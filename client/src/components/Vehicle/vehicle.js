@@ -6,8 +6,7 @@ import { Link } from "react-router-dom"
 import API from "../../utils/API";
 import Timer from "../Timer";
 import { Table } from 'reactstrap';
-
-
+import moment from 'moment'
 
 class Vehicle extends Component {
     state = {
@@ -172,12 +171,13 @@ class Vehicle extends Component {
                                                             <th scope="col">#</th>
                                                             <th scope="col">Location</th>
                                                             <th scope="col">Name</th>
-                                                            <th scope="col">Phone #</th>
+                                                            <th scope="col">Phone</th>
                                                             <th scope="col">Vehicle Info</th>
                                                             <th scope="col">Space</th>
-                                                            <th scope="col">ParkedAt</th>
+                                                            <th scope="col">Parked At</th>
                                                             <th scope="col">Comments</th>
-                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Rate</th>
+                                                            <th scope="col">Update</th>                                                           
                                                             <th scope="col">Return</th>
                                                             
                                                         </tr>
@@ -191,10 +191,11 @@ class Vehicle extends Component {
                                                                 <td>{vehicle.pocphone}</td>
                                                                 <td>{vehicle.vehicleinfo}</td>
                                                                 <td contenteditable="true" className = "spaceClass">{vehicle.spaces}</td>
-                                                                <td>{vehicle.createdAt}</td>
+                                                                <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td>{vehicle.comments}</td>
                                                                 {/* <td key={vehicle._id}><Timer/></td> */}
-                                                                <td><button className="btn btn-primary">Update</button></td>   
+                                                                <td>$10/Day</td>  
+                                                                <td><button className="btn btn-primary">Update</button></td>  
                                                                 <td><button className="btn btn-danger">Return</button></td>    
                                                                                            
                                                                 </tr>
