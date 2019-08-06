@@ -66,3 +66,11 @@
 //   min-width: 1em;
 //   margin-right: 0.5em;
 // }
+
+table {
+    counter-reset: tableCount;     
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}

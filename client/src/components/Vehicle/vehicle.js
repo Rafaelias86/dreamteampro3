@@ -185,7 +185,7 @@ class Vehicle extends Component {
                                                             return (
                                                                 <tr>
                                                                 {/* <td>{vehicle._id}</td> */}
-                                                                <td>{vehicle.__v+1+"."}</td>
+                                                                <td className="counterCell">{""+"."}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
