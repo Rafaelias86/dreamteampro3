@@ -169,6 +169,7 @@ class Vehicle extends Component {
                                                         <tr>
                                                             {/* <th>ID</th> */}
                                                             <th scope="col">#</th>
+                                                            <th scope="col">Customer #</th>
                                                             <th scope="col">Location</th>
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Phone</th>
@@ -186,6 +187,7 @@ class Vehicle extends Component {
                                                                 <tr>
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
+                                                                <td>{vehicle._id}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>

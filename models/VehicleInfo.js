@@ -10,7 +10,7 @@ const vehicleSchema = new Schema({
   locname: {
   
       type: String,
-      unique: true,
+      unique: false,
       required: [true, "location name is required"]
   },
   //person of contact
@@ -41,7 +41,7 @@ const vehicleSchema = new Schema({
   // comments
   comments: {
   type: String,
-  unique: true,
+  unique: false,
   required: [true, "comment is required"]
 },
 
