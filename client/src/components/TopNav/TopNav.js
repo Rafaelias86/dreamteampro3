@@ -86,7 +86,7 @@ export default class Navigation extends Component {
                 </Navbar>
                 <Wrapper>
                         <div className="border border-dark rounded">
-                        <img width="80%" height="80%" src="assets/images/ez-valpark2.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
+                        <img width="80%" height="80%" src="assets/images/ez-valpark2.png" className="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
                         <h5 className="bg-success text-center text-white mx-2 p-2">Fully Ticketless Valet Solution</h5> 
                         </div>    
                 </Wrapper>
