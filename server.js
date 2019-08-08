@@ -22,12 +22,12 @@ app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
   if (req.body.Body == 'Ready') {
-    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
-  } else if (req.body.Body == 'ready') {
-    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk! If you need more time simply reply "Wait".');
+  } else if (req.body.Body == 'Wait') {
+    twiml.message('No worries! Please reply "Ready" to this message again when ever you are ready to pick up your car. Thank you! 😊');
   } else {
     twiml.message(
-      'Please only reply with either "Ready" or "ready" to get the response. Thanks!'
+      'Please only reply with either "Ready" or "Wait" to get the response from us. Thanks! 😊'
     );
   }
 
