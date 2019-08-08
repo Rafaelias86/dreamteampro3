@@ -8,6 +8,9 @@ import Timer from "../Timer";
 import { Table } from 'reactstrap';
 import moment from 'moment'
 
+var uid = (new Date().getTime()).toString(36);
+const uuidv1 = require('uuid/v1');
+uuidv1();
 class Vehicle extends Component {
     state = {
         loggedIn: false,
@@ -20,7 +23,7 @@ class Vehicle extends Component {
         vehicleinfo: "",
         spaces: "",
         comments: "",
-        claimit: false
+        // claimit: false
     }
     componentDidMount() {
         this.loading();
@@ -111,6 +114,10 @@ class Vehicle extends Component {
     //         window.location.reload();
     //     }
     // }
+
+   
+   
+
     render() {
         return (
             <div className="profilePage">
@@ -163,8 +170,8 @@ class Vehicle extends Component {
                                     <div>
                                         <h4 className= "claimtext">Retrieve a vehicle</h4>
                                         {this.state.vehicles.length ? (
-                                            <div>
-                                                <table className="table table-bordered" style={{ marginTop: 20 }}>
+                                            <div className="table-responsive">
+                                                <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
                                                     <thead class="thead-dark">
                                                         <tr>
                                                             {/* <th>ID</th> */}
@@ -188,6 +195,8 @@ class Vehicle extends Component {
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
                                                                 <td>{vehicle._id}</td>
+                                                                {/* <td>{uid}</td> */}
+                                                                {/* <td>{uuidv1}</td> */}
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>

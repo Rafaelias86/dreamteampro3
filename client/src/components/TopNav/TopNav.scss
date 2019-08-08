@@ -1,4 +1,5 @@
 @import "../../sass/variable.scss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 .navbar {
     box-shadow: 0 3px 10px $dark-text;
@@ -22,6 +23,7 @@
         color: $light-text
     }
   
-    
+    h5{
+        font-family: 'Open Sans Condensed', sans-serif;
+    }
 }
-

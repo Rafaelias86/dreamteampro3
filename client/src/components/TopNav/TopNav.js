@@ -85,12 +85,10 @@ export default class Navigation extends Component {
                     </Collapse>
                 </Navbar>
                 <Wrapper>
-                    <Jumbotron >
-                        <Container >
-                            <h1 className="text-primary" id="text-primary">EZ Valpark</h1>
-                            <p className="text-primary" id="text-primary"><strong>Fully ticketless valet solution<strong/></strong></p>
-                        </Container>
-                    </Jumbotron>
+                        <div className="border border-dark rounded">
+                        <img width="80%" height="80%" src="assets/images/ez-valpark2.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
+                        <h5 className="bg-success text-center text-white mx-2 p-2">Fully Ticketless Valet Solution</h5> 
+                        </div>    
                 </Wrapper>
             </div>
         );
