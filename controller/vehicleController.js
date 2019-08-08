@@ -50,7 +50,7 @@ module.exports = {
       //twilio create message starts
         client.messages
         .create({
-        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back.',
+        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and will have your car ready to pickup in 5 minutes.',
         from: '+19546459875',
         to: '+19547930688'
       })

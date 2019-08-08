@@ -10,6 +10,27 @@ const logger = require("morgan");
 const flash = require('connect-flash');
 // const sendEmail = require('./models/sendEmail');
 
+//twilio receive mgs starts
+const http = require('http');
+// const express = require('express');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
+// const app = express();
+
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+
+  twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
+http.createServer(app).listen(1337, () => {
+  console.log('Express server for twilio is listening on port 1337');
+});
+//twilio receive mgs endss
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
