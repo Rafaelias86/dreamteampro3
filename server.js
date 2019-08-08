@@ -14,14 +14,24 @@ const flash = require('connect-flash');
 const http = require('http');
 // const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
-
+const bodyParser = require('body-parser');
 // const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
-  twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+  if (req.body.Body == 'Ready') {
+    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+  } else if (req.body.Body == 'ready') {
+    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+  } else {
+    twiml.message(
+      'Please only reply with either "Ready" or "ready" to get the response. Thanks!'
+    );
+  }
 
+//   twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
