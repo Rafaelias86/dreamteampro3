@@ -8,6 +8,9 @@ import Timer from "../Timer";
 import { Table } from 'reactstrap';
 import moment from 'moment'
 
+var uid = (new Date().getTime()).toString(36);
+const uuidv1 = require('uuid/v1');
+uuidv1();
 class Vehicle extends Component {
     state = {
         loggedIn: false,
@@ -21,7 +24,7 @@ class Vehicle extends Component {
         vehicleinfo: "",
         spaces: "",
         comments: "",
-        claimit: false
+        // claimit: false
     }
     componentDidMount() {
         this.loading();
@@ -114,6 +117,10 @@ class Vehicle extends Component {
     //         window.location.reload();
     //     }
     // }
+
+   
+   
+
     render() {
         return (
             <div className="profilePage">
@@ -166,9 +173,9 @@ class Vehicle extends Component {
                                     <div>
                                         <h4 className= "claimtext">Retrieve a vehicle</h4>
                                         {this.state.vehicles.length ? (
-                                            <div>
-                                                <table className="table table-bordered" style={{ marginTop: 20 }}>
-                                                    <thead class="thead-dark">
+                                            <div className="table-responsive">
+                                                <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
+                                                    <thead className="thead-dark">
                                                         <tr>
                                                             {/* <th>ID</th> */}
                                                             <th scope="col">#</th>
@@ -197,7 +204,7 @@ class Vehicle extends Component {
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
                                                                 <td>{vehicle.vehicleinfo}</td>
-                                                                <td contenteditable="true" className = "spaceClass">{vehicle.spaces}</td>
+                                                                <td contentEditable="true" className = "spaceClass">{vehicle.spaces}</td>
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td>{vehicle.comments}</td>
                                                                 {/* <td key={vehicle._id}><Timer/></td> */}
@@ -231,7 +238,7 @@ class Vehicle extends Component {
                             {!this.state.loading ? (
                                 <>
                                     <h4>please log in</h4>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
+                                    <Link className="loginLink" to="/login"><Button onclick="generateTicket()" className="loginBtn" color=".bg-success" block>Login</Button></Link>
                                 </>
                             ) : (
                                     <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />

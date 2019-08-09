@@ -13,10 +13,17 @@ const transport = nodemailer.createTransport({
 
 const mailOptions = {
   from: '"EZ Valet" <ezvalet2019@gmail.com>',
-  to: ["asinghempire@gmail.com", "ezvalet2019@gmail.com"],
+  to: ["ezvalet2019@gmail.com"],
   subject: "EZ Valet- A new vahicle has been register!",
   text: "admin1 has succussfully register a new vahicle. "
 };
+
+//Twilio code to send text starts
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_ACCOUNT_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
+
 // Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
@@ -40,7 +47,16 @@ module.exports = {
       if (error) {
         return console.log(error);
       }
-      console.log('Message sent: ' + info.response);
+      //twilio create message starts
+        client.messages
+        .create({
+        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and will have your car ready to pickup in 5 minutes.',
+        from: '+19546459875',
+        to: '+19547930688'
+      })
+      .then(message => console.log("twilio message sent"+message.sid));
+      console.log('Email message sent: ' + info.response);
+      //twilio create message ends
     });
     db.Vehicle
       .create(req.body)

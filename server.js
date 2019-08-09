@@ -10,6 +10,37 @@ const logger = require("morgan");
 const flash = require('connect-flash');
 // const sendEmail = require('./models/sendEmail');
 
+//twilio receive mgs starts
+const http = require('http');
+// const express = require('express');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const bodyParser = require('body-parser');
+// const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+
+  if (req.body.Body == 'Ready') {
+    twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk! If you need more time simply reply "Wait".');
+  } else if (req.body.Body == 'Wait') {
+    twiml.message('No worries! Please reply "Ready" to this message again when ever you are ready to pick up your car. Thank you! 😊');
+  } else {
+    twiml.message(
+      'Please only reply with either "Ready" or "Wait" to get the response from us. Thanks! 😊'
+    );
+  }
+
+//   twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk!');
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
+http.createServer(app).listen(1337, () => {
+  console.log('Express server for twilio is listening on port 1337');
+});
+//twilio receive mgs endss
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));

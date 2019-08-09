@@ -6,6 +6,15 @@ const Schema = mongoose.Schema;
 //Do we want to trim example trim: true,
 
 const vehicleSchema = new Schema({
+
+  // //Customer ID
+  // custId: {
+  //   type: String,
+  //   unique: true,
+  //   required: [true, "customer ID is required"]
+   
+  // },
+
     //location name
   locname: {
   
@@ -23,19 +32,19 @@ const vehicleSchema = new Schema({
   //person of contact phone number
   pocphone: {
     type: String,
-    unique: true,
+    unique: false,
     required: [true, "person of contact phone number is required"]
   },
   //vehicle information
   vehicleinfo: {
     type: String,
-    unique: true,
+    unique: false,
     required: [true, "vehicle information is required"]
   },
   //spaces
   spaces: {
   type: String,
-  unique: true,
+  unique: false,
   required: [true, "spaces is required"]
 },
   // comments
@@ -45,10 +54,10 @@ const vehicleSchema = new Schema({
   required: [true, "comment is required"]
 },
 
-claimit: {
-  type: Boolean,
-  default: false
-},
+// claimit: {
+//   type: Boolean,
+//   default: false
+// },
 
   admin: {
     type: Boolean,
