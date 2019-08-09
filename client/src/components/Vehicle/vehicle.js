@@ -14,6 +14,7 @@ class Vehicle extends Component {
         user: null,
         loading: true,
         vehicles: [],
+        customerid: "",
         locname: "",
         poc: "",
         pocphone: "",
@@ -80,11 +81,13 @@ class Vehicle extends Component {
         } else if (name === "comments") {
             this.setState({ comments: value })
         }
+        
     }
     handleUpload = (event) => {
         event.preventDefault()
-        if (this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
+        if (this.state.customerid && this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
             API.saveVehicle({
+                
                 locname: this.state.locname,
                 poc: this.state.poc,
                 pocphone: this.state.pocphone,
@@ -184,10 +187,12 @@ class Vehicle extends Component {
                                                         </tr>
                                                         {this.state.vehicles.map(vehicle => {
                                                             return (
+                                                                                                                               
                                                                 <tr>
+                                                                    
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
-                                                                <td>{vehicle._id}</td>
+                                                                <td>{vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4))}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
