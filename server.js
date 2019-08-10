@@ -51,7 +51,7 @@ app.post('/sms', (req, res) => {
     let mailOptions = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
-      subject: "New SMS message",
+      subject: "New Customer message",
       text: "Ready"
     };
 
@@ -68,7 +68,7 @@ app.post('/sms', (req, res) => {
     let mailOptions = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
-      subject: "New SMS message",
+      subject: "New Customer message",
       text: "Wait"
     };
 

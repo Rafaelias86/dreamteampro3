@@ -15,6 +15,7 @@ class Vehicle extends Component {
     state = {
         loggedIn: false,
         user: null,
+        customerId: "",
         loading: true,
         vehicles: [],
         locname: "",
@@ -88,6 +89,7 @@ class Vehicle extends Component {
         event.preventDefault()
         if (this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
             API.saveVehicle({
+                customerId: this.state.customerId,
                 locname: this.state.locname,
                 poc: this.state.poc,
                 pocphone: this.state.pocphone,
@@ -159,7 +161,7 @@ class Vehicle extends Component {
                                                         <tr>
                                                             {/* <th>ID</th> */}
                                                             <th scope="col">#</th>
-                                                            {/* <th scope="col">Customer #</th> */}
+                                                            <th scope="col">CustID</th>
                                                             <th scope="col">Location</th>
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Phone</th>
@@ -173,11 +175,13 @@ class Vehicle extends Component {
                                                             
                                                         </tr>
                                                         {this.state.vehicles.map(vehicle => {
+                                                            const customerId = "EZ-" + vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4));
                                                             return (
+                                                                
                                                                 <tr>
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
-                                                                {/* <td>{vehicle._id}</td> */}
+                                                                <td>{customerId}</td>
                                                                 {/* <td>{uid}</td> */}
                                                                 {/* <td>{uuidv1}</td> */}
                                                                 <td>{vehicle.locname}</td>
