@@ -100,23 +100,6 @@ class Vehicle extends Component {
             window.location.reload();
         }
     }
-    // handleClaimIt = (event) => {
-    //     event.preventDefault()
-    //     console.log("handleClaimIt")
-    //     if (this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
-    //         console.log("in the if")
-    //         API.claimIt({
-
-    //             claimit: this.state.claimit
-    //         })
-    //             .then(res => this.loadVehicles())
-    //             .catch(err => console.log(err));
-    //         window.location.reload();
-    //     }
-    // }
-
-   
-   
 
     render() {
         return (
@@ -124,11 +107,11 @@ class Vehicle extends Component {
                 {this.state.loggedIn ? (
                     <div className="profileBox bgimg">
                 
-                        <h3 id="userTitle">Welcome {this.state.user.username}</h3>
+                        <h3 className="bg-dark text-white p-2" id="userTitle">Welcome {this.state.user.firstname}</h3>
                         <div>
                             <Row>
                                 <Col className="lg-4">
-                                    <h4 className="vehicletext">Add a new vehicle</h4>
+                                    <h2 className="vehicletext">Add a new vehicle</h2>
                                     <Form>
                                         <FormGroup>
                                             <Label for="locname">Location Name</Label>
@@ -168,7 +151,7 @@ class Vehicle extends Component {
                                 </Col>
                                 {/* <Col lg-8> */}
                                     <div>
-                                        <h4 className= "claimtext">Retrieve a vehicle</h4>
+                                        <h2 className= "parkedVehicle">Parked Vehicle</h2>
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
                                                 <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
@@ -176,7 +159,7 @@ class Vehicle extends Component {
                                                         <tr>
                                                             {/* <th>ID</th> */}
                                                             <th scope="col">#</th>
-                                                            <th scope="col">Customer #</th>
+                                                            {/* <th scope="col">Customer #</th> */}
                                                             <th scope="col">Location</th>
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Phone</th>
@@ -194,7 +177,7 @@ class Vehicle extends Component {
                                                                 <tr>
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
-                                                                <td>{vehicle._id}</td>
+                                                                {/* <td>{vehicle._id}</td> */}
                                                                 {/* <td>{uid}</td> */}
                                                                 {/* <td>{uuidv1}</td> */}
                                                                 <td>{vehicle.locname}</td>

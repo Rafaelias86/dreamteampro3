@@ -104,7 +104,9 @@ class Signup extends Component {
                         <Link to="/login" className="signupLink">already have an account?  Sign in here</Link>
                     </p>
                 </Form>
+                <br/><br/><br/>
             </div>
+            
         );
     }
 }

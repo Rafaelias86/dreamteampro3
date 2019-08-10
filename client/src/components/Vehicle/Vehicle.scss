@@ -38,34 +38,17 @@
         }
     }
 
-    .claimtext {
-        color: forestgreen;
-        
-    }
-    .vehicletext {
-        color: forestgreen;
+    .vehicletext, .parkedVehicle {
+        color: rgb(38,110,93);
       
     }
 
-    #userTitle{
-        color: green;
-        border-style: solid;
-    }
+    // #userTitle{
+    //     border-color: rgb(38,110,93);
+    //     border-style: solid;
+    // }
    
 }
-// table {
-//   counter-reset: rowNumber;
-// }
-
-// table tr {
-//   counter-increment: rowNumber;
-// }
-
-// table tr td:first-child::before {
-//   content: counter(rowNumber);
-//   min-width: 1em;
-//   margin-right: 0.5em;
-// }
 
 table {
     counter-reset: tableCount;     
@@ -74,3 +57,8 @@ table {
     content: counter(tableCount); 
     counter-increment: tableCount; 
 }
+
+// #parking3, #ezlogo
+// {
+//     display: none;
+// }

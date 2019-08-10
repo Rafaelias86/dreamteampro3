@@ -3,7 +3,7 @@ import { Jumbotron, Container, } from 'reactstrap';
 import Wrapper from "./Wrapper";
 import "./TopNav.scss";
 import API from "../../utils/API";
-import logo from "./logo1.png";
+import logo from "./logo2.png";
 import {
     Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
     UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
@@ -47,7 +47,8 @@ export default class Navigation extends Component {
                 <Navbar className="navbar bg-dark text-center" light expand="md">
                     {/* <NavbarBrand href="/" className="titleFont"> EZValet</NavbarBrand> */}
                     <div className="sck">
-                        <img src={logo} width="75" height="50"/> EZ Valpark 
+                        <img src={logo} width="50" height="50"/>
+                        <img src="assets/images/ez-valpark3.png" width="220" height="70"/> 
                     </div>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -84,11 +85,17 @@ export default class Navigation extends Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-                <Wrapper>
-                        <div className="border border-dark rounded">
+                {/* <Wrapper>
+                        <div className="border border-dark rounded" id="ezlogo">
                         <img width="80%" height="80%" src="assets/images/ez-valpark2.png" className="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
                         <h5 className="bg-success text-center text-white mx-2 p-2">Fully Ticketless Valet Solution</h5> 
                         </div>    
+                </Wrapper> */}
+                <Wrapper>
+                        <div className="border border-success rounded p-2 bg-white" id="parking3">
+                        <img width="100%" height="100%" src="assets/images/parkingimg3.png" className="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
+                        </div>    
+                        
                 </Wrapper>
             </div>
         );
