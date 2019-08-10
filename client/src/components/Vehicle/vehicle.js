@@ -15,9 +15,9 @@ class Vehicle extends Component {
     state = {
         loggedIn: false,
         user: null,
+        customerId: "",
         loading: true,
         vehicles: [],
-        customerid: "",
         locname: "",
         poc: "",
         pocphone: "",
@@ -52,7 +52,7 @@ class Vehicle extends Component {
     loadVehicles = () => {
         API.getVehicles()
             .then(res =>
-                this.setState({ vehicles: res.data, locname: "", poc: "", pocphone: "", vehicleinfo: "", spaces: "", comments: "", })
+                this.setState({ vehicles: res.data, customerNum: "",locname: "", poc: "", pocphone: "", vehicleinfo: "", spaces: "", comments: "", })
             )
             .catch(err => console.log(err));
     };
@@ -85,12 +85,13 @@ class Vehicle extends Component {
             this.setState({ comments: value })
         }
         
-    }
+    };
+
     handleUpload = (event) => {
         event.preventDefault()
         if (this.state.customerid && this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
             API.saveVehicle({
-                
+                customerId: this.state.customerId,
                 locname: this.state.locname,
                 poc: this.state.poc,
                 pocphone: this.state.pocphone,
@@ -171,7 +172,7 @@ class Vehicle extends Component {
                                 </Col>
                                 {/* <Col lg-8> */}
                                     <div>
-                                        <h4 className= "claimtext">Retrieve a vehicle</h4>
+                                        <h4 className="claimtext">Retrieve a vehicle</h4>
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
                                                 <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
@@ -193,13 +194,12 @@ class Vehicle extends Component {
                                                             
                                                         </tr>
                                                         {this.state.vehicles.map(vehicle => {
+                                                            const customerId = vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4));
                                                             return (
-                                                                                                                               
                                                                 <tr>
-                                                                    
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
-                                                                <td>{vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4))}</td>
+                                                                <td>{customerId}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
