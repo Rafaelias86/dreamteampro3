@@ -10,6 +10,30 @@ const logger = require("morgan");
 const flash = require('connect-flash');
 // const sendEmail = require('./models/sendEmail');
 
+
+//**************************************************************************** */
+require('dotenv').config();
+
+const nodemailer = require('nodemailer');
+const log = console.log;
+
+// Step 1
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL, // TODO: your gmail account
+        pass: process.env.PASSWORD  // TODO: your gmail password
+    }
+});
+
+
+
+
+//**************************************************************************** */
+
+
+
+
 //twilio receive mgs starts
 const http = require('http');
 // const express = require('express');
@@ -22,8 +46,39 @@ app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
   if (req.body.Body == 'Ready') {
+
+    // Step 2
+    let mailOptions = {
+      from: '"EZ Valet" <ezvalet2019@gmail.com>',
+      to: ["ezvalet2019@gmail.com"],
+      subject: "New SMS message",
+      text: "Ready"
+    };
+
+    // Step 3
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+          return log('Error occurs');
+      }
+      return log('Email sent!!!');
+    });
     twiml.message('Your vehicle will be ready to pick up in 5 minutes. Please see us at the valet desk! If you need more time simply reply "Wait".');
   } else if (req.body.Body == 'Wait') {
+    // Step 2
+    let mailOptions = {
+      from: '"EZ Valet" <ezvalet2019@gmail.com>',
+      to: ["ezvalet2019@gmail.com"],
+      subject: "New SMS message",
+      text: "Wait"
+    };
+
+    // Step 3
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+          return log('Error occurs');
+      }
+      return log('Email sent!!!');
+    });
     twiml.message('No worries! Please reply "Ready" to this message again when ever you are ready to pick up your car. Thank you! 😊');
   } else {
     twiml.message(
@@ -39,7 +94,7 @@ app.post('/sms', (req, res) => {
 http.createServer(app).listen(1337, () => {
   console.log('Express server for twilio is listening on port 1337');
 });
-//twilio receive mgs endss
+//twilio receive mgs ends
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -76,6 +131,4 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Pro3_db_dev", {
         console.log(`connected on port ${PORT}`.cyan)
     });
 });
-
-
 
