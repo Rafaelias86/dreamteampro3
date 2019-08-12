@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Login from "../../components/Login";
-import Signup from "../../components/Signup";
+//import Signup from "../../components/Signup";
 import Vehicle from "../../components/Vehicle";
 import API from "../../utils/API";
 // import "./Auth.scss";
@@ -14,7 +14,7 @@ class Profile extends Component {
         pocphone: "",
         vehicleinfo: "",
         spaces: "",
-        pickup: ""
+        comments: ""
       }
   
 
@@ -35,7 +35,7 @@ class Profile extends Component {
         pocphone: this.state.pocphone,
         vehicleinfo: this.state.vehicleinfo,
         spaces: this.state.spaces,
-        pickup: this.state.pickup,
+        comments: this.state.comments,
       }).then(user => {
         if (user.data.loggedIn) {
           this.setState({
@@ -43,7 +43,7 @@ class Profile extends Component {
             user: user.data.user
           });
           console.log("log in successful");
-          window.location.href = '/parkedvehicle';
+          window.location.href = '/vehicle';
         } else {
           console.log("something went wrong :(")
           console.log(user.data);
@@ -73,7 +73,7 @@ class Profile extends Component {
               pocphone={this.state.pocphone}
               vehicleinfo={this.state.vehicleinfo}
               spaces={this.state.spaces}
-              pickup={this.state.pickup}
+              comments={this.state.comments}
               handleInputChange={this.handleInputChange}
               message={this.state.message}
             />

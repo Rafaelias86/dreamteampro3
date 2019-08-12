@@ -4,13 +4,9 @@ import "./Vehicle.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
 import API from "../../utils/API";
-import Timer from "../Timer";
-import { Table } from 'reactstrap';
+//import { Table } from 'reactstrap';
 import moment from 'moment'
 
-var uid = (new Date().getTime()).toString(36);
-const uuidv1 = require('uuid/v1');
-uuidv1();
 class Vehicle extends Component {
     state = {
         loggedIn: false,
@@ -24,7 +20,6 @@ class Vehicle extends Component {
         vehicleinfo: "",
         spaces: "",
         comments: "",
-        // claimit: false
     }
     componentDidMount() {
         this.loading();
@@ -56,13 +51,7 @@ class Vehicle extends Component {
             )
             .catch(err => console.log(err));
     };
-    // loadClaimIt = () => {
-    //     API.claimIt()
-    //         .then(res =>
-    //             this.setState({ claimit: true })
-    //         )
-    //         .catch(err => console.log(err));
-    // };
+
     vehicleUpload = () => {
         API.vehicleUpload()
             .then(res => this.setState({ spaces: res.data }))
@@ -161,13 +150,13 @@ class Vehicle extends Component {
                                                         <tr>
                                                             {/* <th>ID</th> */}
                                                             <th scope="col">#</th>
-                                                            <th scope="col">CustID</th>
+                                                            <th scope="col">Cust_ID</th>
                                                             <th scope="col">Location</th>
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Phone</th>
-                                                            <th scope="col">Vehicle Info</th>
+                                                            <th scope="col">Vehicle_Info</th>
                                                             <th scope="col">Space</th>
-                                                            <th scope="col">Parked At</th>
+                                                            <th scope="col">Parked_At</th>
                                                             <th scope="col">Comments</th>
                                                             <th scope="col">Rate</th>
                                                             <th scope="col">Update</th>                                                           
@@ -182,8 +171,6 @@ class Vehicle extends Component {
                                                                 {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
                                                                 <td>{customerId}</td>
-                                                                {/* <td>{uid}</td> */}
-                                                                {/* <td>{uuidv1}</td> */}
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
@@ -194,8 +181,7 @@ class Vehicle extends Component {
                                                                 {/* <td key={vehicle._id}><Timer/></td> */}
                                                                 <td>$10/Day</td>  
                                                                 <td><button className="btn btn-primary">Update</button></td>  
-                                                                <td><button className="btn btn-danger">Return</button></td>    
-                                                                                           
+                                                                <td><button className="btn btn-danger">Return</button></td>                              
                                                                 </tr>
  
                                                             )

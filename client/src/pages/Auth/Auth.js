@@ -85,7 +85,7 @@ class Auth extends Component {
         pocphone: this.state.pocphone,
         vehicleinfo: this.state.vehicleinfo,
         spaces: this.state.spaces,
-        pickup: this.state.pickup,
+        comments: this.state.comments,
       }).then(user => {
         if (user.data.loggedIn) {
           this.setState({

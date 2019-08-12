@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Jumbotron, Container, } from 'reactstrap';
 import Wrapper from "./Wrapper";
 import "./TopNav.scss";
 import API from "../../utils/API";
 import logo from "./logo2.png";
 import {
-    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
+    Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink,
     UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 
@@ -47,8 +46,8 @@ export default class Navigation extends Component {
                 <Navbar className="navbar bg-dark text-center" light expand="md">
                     {/* <NavbarBrand href="/" className="titleFont"> EZValet</NavbarBrand> */}
                     <div className="sck">
-                        <img src={logo} width="50" height="50"/>
-                        <img src="assets/images/ez-valpark3.png" width="220" height="70"/> 
+                        <img src={logo} width="50" height="50" alt="logo1"/>
+                        <img src="assets/images/ez-valpark3.png" width="220" height="70" alt="logo2"/> 
                     </div>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>

@@ -7,15 +7,15 @@ const Schema = mongoose.Schema;
 
 const vehicleSchema = new Schema({
 
-  // //Customer ID
-  // custId: {
-  //   type: String,
-  //   unique: true,
-  //   required: [true, "customer ID is required"]
+  //Customer ID
+  customerId: {
+    type: String,
+    //unique: true,
+    //required: [true, "customer ID is required"]
    
-  // },
+  },
 
-    //location name
+  //location name
   locname: {
   
       type: String,
@@ -53,11 +53,6 @@ const vehicleSchema = new Schema({
   unique: false,
   required: [true, "comment is required"]
 },
-
-// claimit: {
-//   type: Boolean,
-//   default: false
-// },
 
   admin: {
     type: Boolean,

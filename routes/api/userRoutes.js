@@ -91,7 +91,7 @@ router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
   });
 });
 
-router.route("/parkedvehicle")
+router.route("/vehicle")
   .get(vehicleController.findAll)
   .post(vehicleController.create);
 
