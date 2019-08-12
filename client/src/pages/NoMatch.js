@@ -4,7 +4,7 @@ function NoMatch() {
     return (
         <div className="notFound">
             <h1>404 Page Not Found</h1>
-            <img src="/assets/images/400Err.webp" alt="400Error" />
+            <img src="/assets/images/400Err.webp" alt="400 Error" />
         </div>
     );
 }
