@@ -96,5 +96,10 @@ router.route("/vehicle")
   .post(vehicleController.create);
 
 
+ // Matches with "/api/vehicle/:id"
+  router.route("/vehicle/:id")
+  .get(vehicleController.findById)
+  .put(vehicleController.update)
+  .delete(vehicleController .remove);
 
 module.exports = router;

@@ -7,7 +7,7 @@ class Home extends Component {
 
   state = {
     loggedIn: false,
-    joke: ""
+    note: ""
   };
 
   componentDidMount() {

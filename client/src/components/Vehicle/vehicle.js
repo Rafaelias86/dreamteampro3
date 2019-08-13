@@ -92,6 +92,14 @@ class Vehicle extends Component {
         }
     }
 
+    handleDeleteVehicle = id => {
+        console.log("deleting");
+        API.deleteVehicles(id)
+          .then(res => this.loadVehicle())
+          .catch(err => console.log(err));
+          window.location.reload();
+      };
+
     render() {
         return (
             <div className="profilePage">
@@ -168,8 +176,8 @@ class Vehicle extends Component {
                                                             return (
                                                                 
                                                                 <tr>
-                                                                {/* <td>{vehicle._id}</td> */}
                                                                 <td className="counterCell">{""+"."}</td>
+                                                                {/* <td>{vehicle._id}</td> */}
                                                                 <td>{customerId}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
@@ -178,10 +186,20 @@ class Vehicle extends Component {
                                                                 <td contentEditable="true" className = "spaceClass">{vehicle.spaces}</td>
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td>{vehicle.comments}</td>
-                                                                {/* <td key={vehicle._id}><Timer/></td> */}
                                                                 <td>$10/Day</td>  
                                                                 <td><button className="btn btn-primary">Update</button></td>  
-                                                                <td><button className="btn btn-danger">Return</button></td>                              
+                                                                <td>
+                                                                <button 
+                                                                    className="btn btn-danger"
+                                                                    type="button"
+                                                                    name="Delete"
+                                                                    key={vehicle._id}
+                                                                    onClick={() => this.handleDeleteVehicle(vehicle._id)} 
+                                                                    disabled={this.state.deleted}
+                                                                >
+                                                                    Return
+                                                                </button>
+                                                                </td>          
                                                                 </tr>
  
                                                             )
