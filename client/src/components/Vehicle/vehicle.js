@@ -158,7 +158,7 @@ class Vehicle extends Component {
                                 </Col>
                                 {/* <Col lg-8> */}
                                     <div>
-                                        <h2 className= "parkedVehicle">Parked Vehicle</h2>
+                                        <h2 className= "parkedVehicle mx-2">Parked Vehicle</h2>
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
                                                 <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>

@@ -46,7 +46,7 @@ export default class Navigation extends Component {
                 <Navbar className="navbar bg-dark text-center" light expand="md">
                     {/* <NavbarBrand href="/" className="titleFont"> EZValet</NavbarBrand> */}
                     <div className="sck">
-                        <img src={logo} width="50" height="50" alt="logo1"/>
+                        {/* <img src={logo} width="50" height="50" alt="logo1"/> */}
                         <img src="assets/images/ez-valpark3.png" width="220" height="70" alt="logo2"/> 
                     </div>
                     <NavbarToggler onClick={this.toggle} />
