@@ -35,6 +35,18 @@ export default {
 
   deleteVehicles: function(id) {
     return axios.delete("/api/users/vehicle/" + id);
-  }
+  },
 
-};
+  updateVehicles: function(id) {
+    return axios.put("/api/users/vehicle/" + id);
+  },
+
+  // updateVehicles(id) {
+  //   const Vehicle = {
+  //       space: this.state.space,
+  //   }
+  //   axios.put('/api/users/vehicle/{this.state.id}', Vehicle)
+  //   .then(res => console.log(res.data));
+  // }
+
+  };

@@ -50,7 +50,7 @@ module.exports = {
       //twilio create message starts
         client.messages
         .create({
-        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and will have your car ready to pickup in 5 minutes.',
+        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and we will have your car ready to pickup within 5 minutes.',
         from: '+19546459875',
         mediaUrl: ['https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market_full/generator/dist/generator/assets/images/websiteQRCode_noFrame.png'],
         to: '+19547930688'//amit

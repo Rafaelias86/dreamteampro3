@@ -35,7 +35,7 @@ class Vehicle extends Component {
         }).catch(err => {
             console.log(err);
         });
-        console.log(this.props)
+        //console.log(this.props)
     }
     loading() {
         setTimeout(() => {
@@ -93,12 +93,20 @@ class Vehicle extends Component {
     }
 
     handleDeleteVehicle = id => {
-        console.log("deleting");
+        //console.log("deleting");
         API.deleteVehicles(id)
           .then(res => this.loadVehicle())
           .catch(err => console.log(err));
           window.location.reload();
       };
+
+    handleUpdateVehicle = id => {
+    console.log("updating");
+    API.updateVehicles(id)
+        .then(res => this.loadVehicle())
+        .catch(err => console.log(err));
+        window.location.reload();
+    };
 
     render() {
         return (
@@ -187,18 +195,27 @@ class Vehicle extends Component {
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td>{vehicle.comments}</td>
                                                                 <td>$10/Day</td>  
-                                                                <td><button className="btn btn-primary">Update</button></td>  
                                                                 <td>
-                                                                <button 
-                                                                    className="btn btn-danger"
+                                                                    <button
+                                                                    className="btn btn-primary"
                                                                     type="button"
-                                                                    name="Delete"
+                                                                    name="Update"
                                                                     key={vehicle._id}
-                                                                    onClick={() => this.handleDeleteVehicle(vehicle._id)} 
-                                                                    disabled={this.state.deleted}
-                                                                >
+                                                                    onClick={() => this.handleUpdateVehicle(vehicle._id)}                                                                    
+                                                                    >
+                                                                    Update
+                                                                    </button>
+                                                                </td>  
+                                                                <td>
+                                                                    <button 
+                                                                        className="btn btn-danger"
+                                                                        type="button"
+                                                                        name="Delete"
+                                                                        key={vehicle._id}
+                                                                        onClick={() => this.handleDeleteVehicle(vehicle._id)}                                                                       
+                                                                    >
                                                                     Return
-                                                                </button>
+                                                                    </button>
                                                                 </td>          
                                                                 </tr>
  
