@@ -25,15 +25,7 @@ let transporter = nodemailer.createTransport({
         pass: process.env.PASSWORD  // TODO: your gmail password
     }
 });
-
-
-
-
 //**************************************************************************** */
-
-
-
-
 //twilio receive mgs starts
 const http = require('http');
 // const express = require('express');
