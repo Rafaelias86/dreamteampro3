@@ -137,7 +137,7 @@ class Vehicle extends Component {
         vehicles[index][property] = e.target.value; 
         this.setState({vehicles: vehicles})
     };
-    
+
     render() {
         return (
             <div className="profilePage">
@@ -205,6 +205,7 @@ class Vehicle extends Component {
                                                             <th scope="col">Parked_At</th>
                                                             <th scope="col">Comments</th>
                                                             <th scope="col">Rate</th>
+                                                            <th scope="col">Total</th>
                                                             <th scope="col">Update</th>                                                           
                                                             <th scope="col">Return</th>
                                                             
@@ -224,7 +225,8 @@ class Vehicle extends Component {
                                                                 <td> <textarea className = "spaceClass" style={{maxWidth:"50px"}} onChange={e => this.updateTableField(index, "spaces", e)} value={vehicle.spaces}/></td>
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td><textarea className = "spaceClass" style={{maxWidth:"100px"}}  onChange={e => this.updateTableField(index, "comments", e)} value={vehicle.comments}/></td>
-                                                                <td>$10/Day</td>  
+                                                                <td>$10/Day</td> 
+                                                                <td>$30</td> 
                                                                 <td>
                                                                     <button
                                                                     className="btn btn-primary"
