@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import API from "../../utils/API";
 //import { Table } from 'reactstrap';
 import moment from 'moment'
+import { resolve } from "url";
 
 class Vehicle extends Component {
     state = {
@@ -19,7 +20,7 @@ class Vehicle extends Component {
         pocphone: "",
         vehicleinfo: "",
         spaces: "",
-        comments: "",
+        comments: ""
     }
     componentDidMount() {
         this.loading();
@@ -45,17 +46,30 @@ class Vehicle extends Component {
         }, 1000)
     }
     loadVehicles = () => {
+        return new Promise((resolve,reject) => {
         API.getVehicles()
-            .then(res =>
+            .then(res => {
                 this.setState({ vehicles: res.data, locname: "", poc: "", pocphone: "", vehicleinfo: "", spaces: "", comments: "", })
+                resolve();
+            }
             )
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            } );
+        });
     };
 
     vehicleUpload = () => {
-        API.vehicleUpload()
-            .then(res => this.setState({ spaces: res.data }))
+        return new Promise((resolve,reject)=>{
+            API.vehicleUpload()
+            .then(res => {
+                this.setState({ spaces: res.data });
+                resolve();
+            })
             .catch(err => console.log(err));
+        })
+       
     };
     handleInput = (event) => {
         var name = event.target.name
@@ -86,28 +100,44 @@ class Vehicle extends Component {
                 spaces: this.state.spaces,
                 comments: this.state.comments,
             })
-                .then(res => this.loadVehicles())
+                .then(res => {
+                    this.loadVehicles()
+                    .then(() => window.location.reload());
+                })
                 .catch(err => console.log(err));
-            window.location.reload();
         }
     }
 
     handleDeleteVehicle = id => {
         //console.log("deleting");
         API.deleteVehicles(id)
-          .then(res => this.loadVehicle())
+          .then(res => this.loadVehicles())
           .catch(err => console.log(err));
           window.location.reload();
       };
 
-    handleUpdateVehicle = id => {
+    handleUpdateVehicle = (id, index) => {
     console.log("updating");
-    API.updateVehicles(id)
-        .then(res => this.loadVehicle())
+    const vehicle = this.state.vehicles[index];
+    API.updateVehicles(id, vehicle)
+        .then(res => {
+            this.loadVehicles()
+            .then(() => window.location.reload())
+            .catch(e => console.error(e));
+        })
         .catch(err => console.log(err));
-        window.location.reload();
+        
     };
 
+    updateTableField = (index, property, e) => {
+        console.log("at updateTableField")
+        console.log(index, property, e)
+        let vehicles = this.state.vehicles;
+        e.target.style.height = (e.target.scrollHeight) + "px";
+        vehicles[index][property] = e.target.value; 
+        this.setState({vehicles: vehicles})
+    };
+    
     render() {
         return (
             <div className="profilePage">
@@ -179,7 +209,7 @@ class Vehicle extends Component {
                                                             <th scope="col">Return</th>
                                                             
                                                         </tr>
-                                                        {this.state.vehicles.map(vehicle => {
+                                                        {this.state.vehicles.map((vehicle, index) => {
                                                             const customerId = "EZ-" + vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4));
                                                             return (
                                                                 
@@ -191,9 +221,9 @@ class Vehicle extends Component {
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
                                                                 <td>{vehicle.vehicleinfo}</td>
-                                                                <td contentEditable="true" className = "spaceClass">{vehicle.spaces}</td>
+                                                                <td> <textarea className = "spaceClass" style={{maxWidth:"50px"}} onChange={e => this.updateTableField(index, "spaces", e)} value={vehicle.spaces}/></td>
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
-                                                                <td>{vehicle.comments}</td>
+                                                                <td><textarea className = "spaceClass" style={{maxWidth:"100px"}}  onChange={e => this.updateTableField(index, "comments", e)} value={vehicle.comments}/></td>
                                                                 <td>$10/Day</td>  
                                                                 <td>
                                                                     <button
@@ -201,7 +231,7 @@ class Vehicle extends Component {
                                                                     type="button"
                                                                     name="Update"
                                                                     key={vehicle._id}
-                                                                    onClick={() => this.handleUpdateVehicle(vehicle._id)}                                                                    
+                                                                    onClick={() => this.handleUpdateVehicle(vehicle._id, index)}                                                                    
                                                                     >
                                                                     Update
                                                                     </button>

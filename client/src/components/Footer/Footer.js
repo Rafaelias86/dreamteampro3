@@ -9,7 +9,7 @@ function Footer() {
             <button onClick={() => window.location='#'}type="button" class="btn btn-outline-light mx-1"><i class="fas fa-qrcode mx-2"></i>Scan</button>
             <button onClick={() => window.location='#'}type="button" class="btn btn-outline-info mx-1"><i class="fas fa-search mx-2"></i>Retrieve</button>
             <button onClick={() => window.location='#'}type="button" class="btn btn-outline-success mx-1"><i class="fas fa-dollar-sign mx-2"></i>Pay</button>
-            <button onClick={() => window.location='#'}type="button" class="btn btn-outline-warning mx-1"><i class="fas fa-parking"></i>Space</button>
+            <button onClick={() => window.location='#'}type="button" class="btn btn-outline-warning mx-1"><i class="fas fa-parking mx-2"></i>Space</button>
            
             {/* <p className="navbar-text my-2 my-lg-0">
                 Copyright  © EZ Valpark Inc. 2019

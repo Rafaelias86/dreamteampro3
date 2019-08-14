@@ -1,4 +1,5 @@
 require('dotenv').config();
+const ObjectId = require('mongoose').Types.ObjectId;
 const db = require("../models");
 const nodemailer = require("nodemailer");
 const transport = nodemailer.createTransport({
@@ -69,9 +70,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
+    console.log(req.body)
     db.Vehicle
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .findOneAndUpdate({ _id: new ObjectId(req.params.id) }, req.body)
+      .then(dbModel => {
+        console.log("updated model")
+        console.log(dbModel);
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {

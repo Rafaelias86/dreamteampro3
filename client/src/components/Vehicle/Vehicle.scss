@@ -58,6 +58,14 @@ table {
     counter-increment: tableCount; 
 }
 
+.spaceClass {
+    outline: none;
+    border: none;
+    background: none;
+    resize: none;
+    min-height: 100px;
+}
+
 // #parking3, #ezlogo
 // {
 //     display: none;
