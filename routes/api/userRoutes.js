@@ -102,21 +102,4 @@ router.route("/vehicle")
   .put(vehicleController.update)
   .delete(vehicleController .remove);
 
-
-  // router.post('/vehicle/:id', function(req, res, next) {
-  //   var Vehicle = {
-  //     spaces: req.body.spaces,
-  //   };
-  //   var id = req.body.id;
-  
-  //   mongo.connect(url, function(err, db) {
-  //     assert.equal(null, err);
-  //     db.collection('user-data').updateOne({"_id": objectId(id)}, {$set: Vehicle}, function(err, result) {
-  //       assert.equal(null, err);
-  //       console.log('Vehicle updated');
-  //       db.close();
-  //     });
-  //   });
-  // });
-
 module.exports = router;
