@@ -19,9 +19,9 @@ class Scan extends Component {
 			this.setState({
 				result: data
 			});
-			const token = window.location.search.match(/\?userToken=(\S+)/)[1];
+			const token = window.location.search.match(/\?userToken=(\S+)/);
 
-		fetch('https://tcc-restapi.herokuapp.com/insert', {
+		fetch('http://localhost:3000/scan', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
