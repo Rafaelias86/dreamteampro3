@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./cards.jpg";
 import "./Payment.scss";
+require('dotenv').config();
 
 class Payment extends Component {
   constructor() {
@@ -66,7 +67,7 @@ class Payment extends Component {
         </p> */}
         {/* {this.state.stripeToken ? (
           <p className="App-intro">
-            {"sk_test_3KjhQ7HSUFEvqXFLFmQHlPlg00X952Vpne" +
+            {process.env.SKEY +
               this.state.stripeToken.id +
               ". Continue payment process in the server."}
           </p>
