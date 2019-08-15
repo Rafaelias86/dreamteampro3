@@ -1,24 +1,24 @@
-.App {
+.Scan {
     text-align: center;
   }
   
-  .App-logo {
-    /* animation: App-logo-spin infinite 20s linear; */
+  .Scan-logo {
+    /* animation: Scan-logo-spin infinite 20s linear; */
     height: 80px;
   }
   
-  .App-header {
+  .Scan-header {
     // background-color: #222;
     height: 150px;
     padding: 20px;
-    color: #073127;
+    color: #073127;;
   }
   
-  .App-intro {
+  .Scan-intro {
     font-size: large;
   }
   
-  @keyframes App-logo-spin {
+  @keyframes Scan-logo-spin {
     from {
       transform: rotate(0deg);
     }
@@ -43,8 +43,7 @@
   
   a {
     text-decoration: none !important;
-  }
-
+}
 //    #parking3, #ezlogo
 //     {
 //         display: none;

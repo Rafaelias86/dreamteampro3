@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./cards.jpg";
+import logo from "./cards.png";
 import "./Payment.scss";
 require('dotenv').config();
 
@@ -55,18 +55,18 @@ class Payment extends Component {
       //window.location='/profile';
     }
     return (
-      <div className="App">
-        <div className="App-header">
+      <div className="Scan">
+        <div className="Scan-header">
           <h2>Payment Option</h2>
-          <img src={logo} className="App-logo border border-success" alt="logo" />         
+          <img src={logo} className="Scan-logo" alt="logo" />         
         </div>
-        {/* <p className="App-intro">
+        {/* <p className="Scan-intro">
           {
-            "Tap the button below to open Stripe's Checkout overlay. Replace <YOUR_STRIPE_PUBLISHABLE_KEY> in App.js with your own key."
+            "Tap the button below to open Stripe's Checkout overlay. Replace <YOUR_STRIPE_PUBLISHABLE_KEY> in Scan.js with your own key."
           }
         </p> */}
         {/* {this.state.stripeToken ? (
-          <p className="App-intro">
+          <p className="Scan-intro">
             {process.env.SKEY +
               this.state.stripeToken.id +
               ". Continue payment process in the server."}
