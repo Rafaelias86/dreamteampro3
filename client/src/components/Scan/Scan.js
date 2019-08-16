@@ -32,8 +32,8 @@ class Scan extends Component {
 			})
 		})
 			.then((res) => {
-				console.log('res', res);
-				alert('Nota salva com sucesso!');
+				console.log('res', res); 
+				alert('Customer info found !');
 			})
 			.catch(e => console.log(e));
 		}
@@ -52,6 +52,7 @@ class Scan extends Component {
 					style={{ width: "30%", height: "auto" }}
 				/>
 				<p className="p-1">{this.state.result}</p>
+				<button onClick={() => window.location.reload()}type="button" class="btn btn-outline-danger mx-1"><i class="fas fa-qrcode mx-2"></i>RE-SCAN</button>
 			</div>
             </center>
 		);
