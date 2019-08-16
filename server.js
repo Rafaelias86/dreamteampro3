@@ -44,7 +44,7 @@ app.post('/sms', (req, res) => {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
       subject: "New Customer message",
-      text: "Ready"
+      text: "Ready"+twiml
     };
 
     // Step 3

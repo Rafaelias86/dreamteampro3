@@ -12,12 +12,7 @@ const transport = nodemailer.createTransport({
   },
 });
 
-const mailOptions = {
-  from: '"EZ Valet" <ezvalet2019@gmail.com>',
-  to: ["ezvalet2019@gmail.com"],
-  subject: "EZ Valet- A new vahicle has been register!",
-  text: "admin1 has succussfully register a new vahicle. "
-};
+
 
 //Twilio code to send text starts
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -25,7 +20,7 @@ const authToken = process.env.TWILIO_ACCOUNT_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 
-// Defining methods for the booksController
+// Defining methods for the vehiclesController
 module.exports = {
   findAll: function (req, res) {
     db.Vehicle
@@ -43,6 +38,13 @@ module.exports = {
   create: function (req, res) {
     console.log("here's the create function")
     // pullEmails();
+    const mailOptions = {
+      from: '"EZ Valet" <ezvalet2019@gmail.com>',
+      to: ["ezvalet2019@gmail.com"],
+      subject: "EZ Valet- New vahicle registration!",
+      text: "A new vehicle "+req.body.vehicleinfo+" ("+" id # "+req.body.customerId+") "+"has been succussfully registered."
+    };
+
     transport.sendMail(mailOptions, function (error, info) {
       console.log("transport is sending Mail.")
       if (error) {
@@ -55,10 +57,6 @@ module.exports = {
         from: '+19546459875',
         mediaUrl: [req.body.mediaUrl],
         to:[req.body.pocphone]
-        //to: '+17867680524'//Julio
-        //to: '+12096249203'//Orlando
-        //to: '+17542186810'//Rafael
-        //to: '+17862349591'//Omar
       })
       .then(message => console.log("twilio message sent"+message.sid));
       console.log('Email message sent: ' + info.response);
