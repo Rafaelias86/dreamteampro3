@@ -7,6 +7,7 @@ import API from "../../utils/API";
 //import { Table } from 'reactstrap';
 import moment from 'moment'
 import { resolve } from "url";
+import Qrcode from "../QrCode/"
 
 class Vehicle extends Component {
     state = {
@@ -20,7 +21,8 @@ class Vehicle extends Component {
         pocphone: "",
         vehicleinfo: "",
         spaces: "",
-        comments: ""
+        comments: "",
+        qrData: null
     }
     componentDidMount() {
         this.loading();
@@ -89,6 +91,13 @@ class Vehicle extends Component {
         }
     }
     handleUpload = (event) => {
+        // alert("Saving");
+        let { customerId, locname, poc, pocphone, vehicleinfo } = this.state;
+        let qrData = { customerId, locname, poc, pocphone, vehicleinfo }
+        let qrStrData = customerId + " | " + locname + " | " + poc + " | " + pocphone + " | " + vehicleinfo;
+        this.setState({
+            vehicles: [], qrData
+        })
         event.preventDefault()
         if (this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
             API.saveVehicle({
@@ -99,6 +108,8 @@ class Vehicle extends Component {
                 vehicleinfo: this.state.vehicleinfo,
                 spaces: this.state.spaces,
                 comments: this.state.comments,
+                mediaUrl: 'https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=' + encodeURIComponent(qrStrData) + '&choe=UTF-8'
+
             })
                 .then(res => {
                     this.loadVehicles()

@@ -53,7 +53,7 @@ module.exports = {
         .create({
         body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and we will have your car ready to pickup within 5 minutes.',
         from: '+19546459875',
-        mediaUrl: ['https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market_full/generator/dist/generator/assets/images/websiteQRCode_noFrame.png'],
+        mediaUrl: [req.body.mediaUrl],
         to: '+19547930688'//amit
         //to: '+17867680524'//Julio
         //to: '+12096249203'//Orlando
