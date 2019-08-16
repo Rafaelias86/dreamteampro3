@@ -21,8 +21,10 @@ class Vehicle extends Component {
         pocphone: "",
         vehicleinfo: "",
         spaces: "",
-        comments: "",
-        qrData: null
+        comments: null,
+        qrData: null,
+        rate: null,
+        total:null
     }
     componentDidMount() {
         this.loading();
@@ -51,7 +53,7 @@ class Vehicle extends Component {
         return new Promise((resolve,reject) => {
         API.getVehicles()
             .then(res => {
-                this.setState({ vehicles: res.data, locname: "", poc: "", pocphone: "", vehicleinfo: "", spaces: "", comments: "", })
+                this.setState({ vehicles: res.data, customerId: "", locname: "", poc: "", pocphone: "", vehicleinfo: "", spaces: "", rate: "", total: "", comments: "", })                
                 resolve();
             }
             )
@@ -76,6 +78,7 @@ class Vehicle extends Component {
     handleInput = (event) => {
         var name = event.target.name
         var value = event.target.value
+        const randomNumber = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
         if (name === "locname") {
             this.setState({ locname: value })
         } else if (name === "poc") {
@@ -88,7 +91,15 @@ class Vehicle extends Component {
             this.setState({ spaces: value })
         } else if (name === "comments") {
             this.setState({ comments: value })
+        } else if (name === "rate") {
+            this.setState({rate: value})
+            // if(this.rate === "$5"){
+            //   this.setState({total: this.rate * 3})
+            // }
+            
         }
+        this.setState({total: this.state.rate * 3});
+        this.setState({customerId: "EZ-" + this.state.pocphone.substring(this.state.pocphone.length-2) + randomNumber});
     }
     handleUpload = (event) => {
         // alert("Saving");
@@ -99,7 +110,7 @@ class Vehicle extends Component {
             vehicles: [], qrData
         })
         event.preventDefault()
-        if (this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments) {
+        if (this.state.customerId && this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.rate && this.state.total && this.state.comments) {
             API.saveVehicle({
                 customerId: this.state.customerId,
                 locname: this.state.locname,
@@ -108,7 +119,9 @@ class Vehicle extends Component {
                 vehicleinfo: this.state.vehicleinfo,
                 spaces: this.state.spaces,
                 comments: this.state.comments,
-                mediaUrl: 'https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=' + encodeURIComponent(qrStrData) + '&choe=UTF-8'
+                mediaUrl: 'https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=' + encodeURIComponent(qrStrData) + '&choe=UTF-8',
+                rate: this.state.rate,
+                total: this.state.total
 
             })
                 .then(res => {
@@ -181,16 +194,20 @@ class Vehicle extends Component {
                                             <Label for="spaces">Parking Space</Label>
                                             <Input type="text" name="spaces" id="spaces" placeholder="Enter the parking space number" onChange={event => this.handleInput(event)} />
                                         </FormGroup>
-                                        {/* <FormGroup>
-                                            <Label for="photo">Photo</Label>
-                                            <Input type="text" name="photos" id="photos" placeholder="Photo" onChange={event => this.handleInput(event)} />
-                                        </FormGroup> */}
+                                        <FormGroup>
+                                            <label for="rate">Select Parking Rate:</label>
+                                            <select class="browser-default custom-select" name="rate" value={this.state.value} onChange={event => this.handleInput(event)}>
+                                                <option selected>Options</option>
+                                                <option value="5">By Hour ($5)</option>
+                                                <option value="25">By Day ($25)</option>
+                                            </select>
+                                        </FormGroup>
                                         <FormGroup>
                                             <Label for="comments">Comments</Label>
                                             <Input type="text" name="comments" id="comments" placeholder="Comments..." onChange={event => this.handleInput(event)} />
                                         </FormGroup>
                                         <Button
-                                            className="loginBtn btn btn-primary" disabled={!(this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.comments)}
+                                            className="loginBtn btn btn-primary" disabled={!(this.state.customerId && this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.rate && this.state.comments)}
                                             onClick={(event) => this.handleUpload(event)} color="primary">Submit
                                         </Button>
                                         <Button className="cancelBtn btn-danger mx-4">Cancel</Button>
@@ -222,13 +239,12 @@ class Vehicle extends Component {
                                                             
                                                         </tr>
                                                         {this.state.vehicles.map((vehicle, index) => {
-                                                            const customerId = "EZ-" + vehicle.pocphone.substring(vehicle.pocphone.length-2).concat(vehicle._id.substring(vehicle._id.length-4));
                                                             return (
                                                                 
                                                                 <tr>
                                                                 <td className="counterCell">{""+"."}</td>
                                                                 {/* <td>{vehicle._id}</td> */}
-                                                                <td>{customerId}</td>
+                                                                <td>{vehicle.customerId}</td>
                                                                 <td>{vehicle.locname}</td>
                                                                 <td>{vehicle.poc}</td>
                                                                 <td>{vehicle.pocphone}</td>
@@ -236,8 +252,8 @@ class Vehicle extends Component {
                                                                 <td> <textarea className = "spaceClass" style={{maxWidth:"50px"}} onChange={e => this.updateTableField(index, "spaces", e)} value={vehicle.spaces}/></td>
                                                                 <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
                                                                 <td><textarea className = "spaceClass" style={{maxWidth:"100px"}}  onChange={e => this.updateTableField(index, "comments", e)} value={vehicle.comments}/></td>
-                                                                <td>$10/Day</td> 
-                                                                <td>$30</td> 
+                                                                <td>{"$"+ vehicle.rate + "/hour"}</td>
+                                                                <td>{vehicle.total}</td>
                                                                 <td>
                                                                     <button
                                                                     className="btn btn-primary"

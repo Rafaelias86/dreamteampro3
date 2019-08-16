@@ -51,10 +51,10 @@ module.exports = {
       //twilio create message starts
         client.messages
         .create({
-        body: 'Thank you for parking your vehicle with us. Your e-ticket # is EZ-765213. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and we will have your car ready to pickup within 5 minutes.',
+        body: 'Thank you for parking your vehicle with us. Your e-ticket # is '+req.body.customerId+'. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and we will have your car ready to pickup within 5 minutes.',
         from: '+19546459875',
         mediaUrl: [req.body.mediaUrl],
-        to: '+19547930688'//amit
+        to:[req.body.pocphone]
         //to: '+17867680524'//Julio
         //to: '+12096249203'//Orlando
         //to: '+17542186810'//Rafael

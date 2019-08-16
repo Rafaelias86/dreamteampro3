@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
 import { Link } from "react-router-dom";
 import "./Signup.css"
-
 class Signup extends Component {
     state = {
         validUsername: false,
@@ -54,8 +53,10 @@ class Signup extends Component {
     }
     render() {
         return (
-            <div>
-                <h2 className="loginTitle title-font">Signup</h2>
+            <div className="card px-2">
+              <div className="card-body">
+                <h2 className="card-title text-center">Signup</h2>
+                {/* <h2 className="loginTitle title-font">Signup</h2> */}
                 <hr />
                 {this.props.message ? (
                     <Alert className="animated fadeIn" color="danger">{this.props.message}</Alert>
@@ -96,19 +97,19 @@ class Signup extends Component {
                     </FormGroup>
                     {/* if all fields are valid, allow the user to submit the form */}
                     {(this.state.validUsername && this.state.validPassword && this.state.confirmPassword) ? (
-                        <Button color="success" className="greenbtn" id="loginBtn" onClick={this.props.handleSignup} block>Signup</Button>
+                        <Button color="success" className="btn btn-lg btn-success mt-2" id="signupBtn" onClick={this.props.handleSignup} block>Signup</Button>
                     ) : (
-                            <Button color="success" className="greenbtn" id="loginBtn" onClick={this.props.handleSignup} block disabled>Signup</Button>
+                            <Button color="success" className="btn btn-lg btn-success mt-2" id="signupBtn" onClick={this.props.handleSignup} block disabled>Signup</Button>
                         )}
                     <p className="signupLink">
-                        <Link to="/login" className="signupLink">already have an account?  Sign in here</Link>
+                        <Link to="/login" className="signupLink">Already have an account?  Sign in here</Link>
                     </p>
                 </Form>
                 <br/><br/><br/>
             </div>
-            
+         </div>
+         
         );
     }
 }
-
 export default Signup;

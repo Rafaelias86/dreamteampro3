@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Wrapper from "./Wrapper";
 import "./TopNav.scss";
 import API from "../../utils/API";
-import logo from "./logo6.png";
+// import logo from "./logo2.png";
 import {
-    Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink,
+    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
     UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 
@@ -43,11 +43,11 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-                <Navbar className="navbar bg-dark text-center" light expand="md">
-                    {/* <NavbarBrand href="/" className="titleFont"> EZValet</NavbarBrand> */}
-                    <div className="sck">
-                        <img src={logo} width="50" height="50" alt="logo6"/>
-                        <img src="assets/images/ez-valpark3.png" width="220" height="70" alt="logo2"/> 
+                <Navbar className="navbar navbar-expand-lg purple-gradient py-0 text-white"  expand="md">
+                    <div>
+                        <img src="assets/images/ez-valpark3.png" width="300" height="auto" className="animated pulse infinite" alt="Transparent MDB Logo" id="animated-img1"/>
+                        <p className="d-inline py-0 mt-4">Parking Made Easy</p>
+ 
                     </div>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -56,7 +56,7 @@ export default class Navigation extends Component {
                                 <NavLink href="/"><i className="fas fa-home text-white"></i></NavLink>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                                <DropdownToggle className=" text-white" nav caret>
                                     <i className="fas fa-user text-white"></i>
                                 </DropdownToggle>
                                 <DropdownMenu right>
@@ -90,10 +90,10 @@ export default class Navigation extends Component {
                         <h5 className="bg-success text-center text-white mx-2 p-2">Fully Ticketless Valet Solution</h5> 
                         </div>    
                 </Wrapper> */}
-                <Wrapper>
-                        <div className="border border-success rounded p-2 bg-white" id="parking3">
+                <Wrapper className="view">
+                        {/* <div className="border border-success rounded p-2 bg-white" id="parking3">
                         <img width="100%" height="100%" src="assets/images/parkingimg3.png" className="img-fluid rounded mx-auto d-block" alt="Responsive image"/>
-                        </div>    
+                        </div>     */}
                         
                 </Wrapper>
             </div>

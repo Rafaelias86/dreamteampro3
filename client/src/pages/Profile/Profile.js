@@ -14,6 +14,8 @@ class Profile extends Component {
         pocphone: "",
         vehicleinfo: "",
         spaces: "",
+        rate: "",
+        total: "",
         comments: ""
       }
   
@@ -30,11 +32,14 @@ class Profile extends Component {
     event.preventDefault();
     if (this.state.username && this.state.password) {
       API.vehicleUpload({
+        customerId: this.state.customerId,
         locname: this.state.locname,
         poc: this.state.poc,
         pocphone: this.state.pocphone,
         vehicleinfo: this.state.vehicleinfo,
         spaces: this.state.spaces,
+        rate: this.state.rate,
+        total: this.state.total,
         comments: this.state.comments,
       }).then(user => {
         if (user.data.loggedIn) {
@@ -68,11 +73,14 @@ class Profile extends Component {
           />
         ) : (
             <Vehicle
+              customerId={this.state.customerId}
               locname={this.state.locname}
               poc={this.state.poc}
               pocphone={this.state.pocphone}
               vehicleinfo={this.state.vehicleinfo}
               spaces={this.state.spaces}
+              rate={this.state.rate}
+              total={this.state.total}
               comments={this.state.comments}
               handleInputChange={this.handleInputChange}
               message={this.state.message}

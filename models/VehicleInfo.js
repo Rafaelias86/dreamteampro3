@@ -10,8 +10,8 @@ const vehicleSchema = new Schema({
   //Customer ID
   customerId: {
     type: String,
-    //unique: true,
-    //required: [true, "customer ID is required"]
+    unique: true,
+    required: [false, "customer ID NOT required"]
    
   },
 
@@ -47,6 +47,20 @@ const vehicleSchema = new Schema({
   unique: false,
   required: [true, "spaces is required"]
 },
+
+//rate
+rate: {
+  type: String,
+  unique: false,
+  required: [true, "comment is required"]
+},
+//Total
+total: {
+  type: Number,
+  unique: false,
+  required: [true, "comment is required"]
+},
+
   // comments
   comments: {
   type: String,
