@@ -43,8 +43,8 @@ app.post('/sms', (req, res) => {
     let mailOptions = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
-      subject: "New Customer message",
-      text: "Ready"+twiml
+      subject: "New Customer Message - Ready",
+      text: "From: "+req.body.From
     };
 
     // Step 3
@@ -60,8 +60,8 @@ app.post('/sms', (req, res) => {
     let mailOptions = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
-      subject: "New Customer message",
-      text: "Wait"
+      subject: "New Customer message - Wait",
+      text: "From: "+req.body.From
     };
 
     // Step 3

@@ -42,7 +42,8 @@ module.exports = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
       to: ["ezvalet2019@gmail.com"],
       subject: "EZ Valet- New vahicle registration!",
-      text: "A new vehicle "+req.body.vehicleinfo+" ("+" id # "+req.body.customerId+") "+"has been succussfully registered."
+      text: "A new vehicle "+req.body.vehicleinfo+" ("+" id # "+req.body.customerId+") "+"has been succussfully registered. "
+      +"Registered Phone is "+req.body.pocphone+" ."
     };
 
     transport.sendMail(mailOptions, function (error, info) {
