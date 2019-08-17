@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import logo from "./cards.png";
 import "./Payment.scss";
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom"
+import API from "../../utils/API";
+
 require('dotenv').config();
 
 class Payment extends Component {
+
+  state = {
+    loggedIn: false,
+    user: null,
+   
+    }
+
   constructor() {
     super();
 
@@ -45,6 +56,21 @@ class Payment extends Component {
       opened: onCheckoutOpened.bind(this)
     });
   }
+
+   componentDidMount() {
+        API.isLoggedIn().then(user => {
+            if (user.data.loggedIn) {
+                this.setState({
+                    loggedIn: true,
+                    user: user.data.user
+                });
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+        //console.log(this.props)
+    }
+
   render() {
     var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10";
     var buttonClassName =
@@ -55,33 +81,51 @@ class Payment extends Component {
       //window.location='/profile';
     }
     return (
-      <div className="Scan">
-        <div className="Scan-header">
-          <h2>Payment Option</h2>
-          <img src={logo} className="Scan-logo" alt="logo" />         
+      <div className="Pay profilePage">
+          {this.state.loggedIn ? (
+            <div className="Pay1">
+              <div className="Pay-header">
+                <h1 className="my-1">Payment Option</h1>
+                <img src={logo} className="Pay-logo" alt="logo" />         
+              </div>
+              {/* <p className="Pay-intro">
+                {
+                  "Tap the button below to open Stripe's Checkout overlay. Replace <YOUR_STRIPE_PUBLISHABLE_KEY> in Pay.js with your own key."
+                }
+              </p> */}
+              {/* {this.state.stripeToken ? (
+                <p className="Pay-intro">
+                  {process.env.SKEY +
+                    this.state.stripeToken.id +
+                    ". Continue payment process in the server."}
+                </p>
+              ) : null} */}
+              <a
+                className={buttonClassName}
+                href="/pay"
+                onClick={this.onClickPay.bind(this)}
+              >
+                {buttonText}
+              </a>
+              </div>
+
+              ) :
+                (
+                    <div className="noUser">
+                      {!this.state.loading ? (
+                            <>
+                                <h4>please log in</h4>
+                                <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
+                            </>
+                        ) : (
+                                <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />
+                            )}
+                    </div>
+                )}
         </div>
-        {/* <p className="Scan-intro">
-          {
-            "Tap the button below to open Stripe's Checkout overlay. Replace <YOUR_STRIPE_PUBLISHABLE_KEY> in Scan.js with your own key."
-          }
-        </p> */}
-        {/* {this.state.stripeToken ? (
-          <p className="Scan-intro">
-            {process.env.SKEY +
-              this.state.stripeToken.id +
-              ". Continue payment process in the server."}
-          </p>
-        ) : null} */}
-        <a
-          className={buttonClassName}
-          href="/pay"
-          onClick={this.onClickPay.bind(this)}
-        >
-          {buttonText}
-        </a>
-      </div>
-    );
-  }
+        )
+    }
 }
 
 export default Payment;
+

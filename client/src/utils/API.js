@@ -41,12 +41,5 @@ export default {
     return axios.put("/api/users/vehicle/" + id, body);
   },
 
-  // updateVehicles(id) {
-  //   const Vehicle = {
-  //       space: this.state.space,
-  //   }
-  //   axios.put('/api/users/vehicle/{this.state.id}', Vehicle)
-  //   .then(res => console.log(res.data));
-  // }
-
+  
   };

@@ -217,6 +217,24 @@ class Vehicle extends Component {
                                 {/* <Col lg-8> */}
                                     <div>
                                         <h2 className= "parkedVehicle mx-2">Parked Vehicles</h2>
+                                        <div>
+                                        <FormGroup className="form-inline">
+                                        <div className="form-group mr-2">
+                                        <label for="find by" className=" font-weight-bold mx-2">Find by:</label>
+                                        <select id="selectBy" className="custom-select form-group col-md-8" name="selectBy">
+                                                <option selected>Cust_ID</option>
+                                                <option >Name</option>
+                                                <option >Phone</option>
+                                                <option >Registration</option>
+                                        </select>
+                                        </div>
+                                        <div className="form-group mr-2">
+                                            <input type="value" class="form-control" id="inputvalue" placeholder="Value"/>
+                                        </div>
+                                        <button type="search" class="btn btn-primary">Search</button>
+                                        </FormGroup>
+                                    </div>
+
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
                                                 <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
@@ -302,7 +320,7 @@ class Vehicle extends Component {
                             {!this.state.loading ? (
                                 <>
                                     <h4>please log in</h4>
-                                    <Link className="loginLink" to="/login"><Button onclick="generateTicket()" className="loginBtn" color=".bg-success" block>Login</Button></Link>
+                                    <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
                                 </>
                             ) : (
                                     <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />

@@ -7,7 +7,6 @@ import API from "../../utils/API";
 
 class Profile extends Component {
 
-  
     state = {
         locname: "",
         poc: "",
@@ -19,7 +18,6 @@ class Profile extends Component {
         comments: ""
       }
   
-
   handleInputChange = event => {
     const value = event.target.value;
     const name = event.target.name;
