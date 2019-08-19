@@ -1,17 +1,25 @@
 @import "../../sass/variable.scss";
 
 .footer {
-    clear:both;
+    // clear:both;
     width: 100%;
     margin: 0 auto;
     padding: 5px;
     font-family: $text-font;
     color: $light-text;
-    position: relative;
+
+    position: fixed;
+    // height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+
+    // position: relative;
 }
-.push {
-    height: 150px;
-  }
+// .push {
+//     height: 150px;
+//   }
   
     // p {
     //     // line-height: $footer-height;
