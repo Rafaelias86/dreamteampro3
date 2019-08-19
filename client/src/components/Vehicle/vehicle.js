@@ -163,8 +163,16 @@ class Vehicle extends Component {
 
     myFunction = () =>  {
         // Declare variables 
-        // alert("myFunction test");
         var input, filter, table, tr, td, i, txtValue;
+        //var index=1;
+        var index= document.getElementById("dropdown_change").value;
+        console.log("index");
+        document.getElementById('dropdown_change').onchange = function() {
+            index=this.options[this.selectedIndex].value;
+            document.getElementById('myInput').value = '';
+            //window.location.reload();
+        }
+
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
@@ -172,7 +180,7 @@ class Vehicle extends Component {
       
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1];
+          td = tr[i].getElementsByTagName("td")[index];
           if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -243,11 +251,11 @@ class Vehicle extends Component {
                                         <FormGroup className="form-inline">
                                         <div className="form-group mr-2">
                                         <label for="find by" className=" font-weight-bold mx-2">Find by:</label>
-                                        <select id="selectBy" className="custom-select form-group col-md-8" name="selectBy">
-                                                <option selected>Cust_ID</option>
-                                                <option >Name</option>
-                                                <option >Phone</option>
-                                                <option >Registration</option>
+                                        <select id="dropdown_change" className="custom-select form-group col-md-8" name="selectBy">
+                                                <option value="1" selected>Cust_ID</option>
+                                                <option value="3" >Name</option>
+                                                <option value="4" >Phone</option>
+                                                <option value="5" >Registration</option>
                                         </select>
                                         </div>
                                         <div className="form-group mr-2">
