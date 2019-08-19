@@ -29,7 +29,6 @@ class Vehicle extends Component {
     componentDidMount() {
         this.loading();
         this.loadVehicles();
-        // this.loadClaimIt();
         API.isLoggedIn().then(user => {
             if (user.data.loggedIn) {
                 this.setState({
@@ -162,6 +161,29 @@ class Vehicle extends Component {
         this.setState({vehicles: vehicles})
     };
 
+    myFunction = () =>  {
+        // Declare variables 
+        // alert("myFunction test");
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+      
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          } 
+        }
+      };
+    
     render() {
         return (
             <div className="profilePage">
@@ -229,18 +251,16 @@ class Vehicle extends Component {
                                         </select>
                                         </div>
                                         <div className="form-group mr-2">
-                                            <input type="value" class="form-control" id="inputvalue" placeholder="Value"/>
+                                            <input type="text" class="form-control" id="myInput" onKeyUp={() => this.myFunction()} placeholder="Value"/>
                                         </div>
-                                        <button type="search" class="btn btn-primary">Search</button>
                                         </FormGroup>
-                                    </div>
+                                        </div>
 
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
-                                                <table className="table table-bordered w-auto" style={{ marginTop: 20 }}>
+                                                <table id="myTable" className="table table-bordered w-auto" style={{ marginTop: 20 }}>
                                                     <thead className="thead-dark">
-                                                        <tr>
-                                                            {/* <th>ID</th> */}
+                                                        <tr className="header">
                                                             <th scope="col">#</th>
                                                             <th scope="col">Cust_ID</th>
                                                             <th scope="col">Location</th>
@@ -253,8 +273,7 @@ class Vehicle extends Component {
                                                             <th scope="col">Rate</th>
                                                             <th scope="col">Total</th>
                                                             <th scope="col">Update</th>                                                           
-                                                            <th scope="col">Return</th>
-                                                            
+                                                            <th scope="col">Return</th>   
                                                         </tr>
                                                         {this.state.vehicles.map((vehicle, index) => {
                                                             return (
