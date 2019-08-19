@@ -4,6 +4,7 @@ import "./Footer.scss";
 function Footer() {
     return (
         <footer>
+            <div class='push'></div>
           <div className="footer fixed-bottom bg-dark text-white text-center d-flex justify-content-around">
             <button onClick={() => window.location='/profile'} type="button" class="btn btn-outline-primary mx-1"><i class="fas fa-car mx-2"></i>Add/View</button>
             <button onClick={() => window.location='/scan'}type="button" class="btn btn-outline-light mx-1"><i class="fas fa-qrcode mx-2"></i>Scan</button>

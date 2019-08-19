@@ -8,14 +8,18 @@
     font-family: $text-font;
     color: $light-text;
     position: relative;
-
-    p {
-        // line-height: $footer-height;
-        width:100%;
-        margin: 0 auto;
-        text-align: center;
-        display: inline-block;
-    }
+}
+.push {
+    height: 100px;
+  }
+  
+    // p {
+    //     // line-height: $footer-height;
+    //     width:100%;
+    //     margin: 0 auto;
+    //     text-align: center;
+    //     display: inline-block;
+    // }
 
     
 
@@ -32,7 +36,7 @@
     }
 
 
-}
+
 
 // #reactLogo {
 //     -webkit-animation:spin 10s linear infinite;
