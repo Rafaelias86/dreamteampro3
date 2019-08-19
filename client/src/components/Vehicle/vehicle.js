@@ -4,10 +4,7 @@ import "./Vehicle.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
 import API from "../../utils/API";
-//import { Table } from 'reactstrap';
 import moment from 'moment'
-import { resolve } from "url";
-import Qrcode from "../QrCode/"
 
 class Vehicle extends Component {
     state = {
