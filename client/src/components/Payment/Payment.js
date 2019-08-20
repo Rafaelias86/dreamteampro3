@@ -78,10 +78,10 @@ class Payment extends Component {
     if (this.state.stripeToken) {
       buttonText = "✅ Payment Successful";
       buttonClassName = "Pay-Now Pay-Now-Disabled";
-      //window.location='/profile';
+      //window.location='/dashboard';
     }
     return (
-      <div className="Pay profilePage">
+      <div className="Pay dashboardPage">
           {this.state.loggedIn ? (
             <div className="Pay1">
               <div className="Pay-header">

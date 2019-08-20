@@ -5,7 +5,7 @@ import Vehicle from "../../components/Vehicle";
 import API from "../../utils/API";
 // import "./Auth.scss";
 
-class Profile extends Component {
+class Dashboard extends Component {
 
     state = {
         locname: "",
@@ -60,7 +60,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="profilePage">
+      <div className="dashboardPage">
         {(this.props.action === "login") ? (
           <Login
             username={this.state.username}
@@ -89,4 +89,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Dashboard;

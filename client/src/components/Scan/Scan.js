@@ -68,7 +68,7 @@ class Scan extends Component {
     
     render() {
         return (
-            <div className="profilePage">
+            <div className="dashboardPage">
                 {this.state.loggedIn ? (
 					<center>
 						<h1 className="text-black">Scan QR Code</h1>

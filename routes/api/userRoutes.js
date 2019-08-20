@@ -67,9 +67,9 @@ router.get("/unauthorized", function(req, res, next) {
   
 });
 
-// /api/users/profile
+// /api/users/dashboard
 // if the user is logged in, this route sends the user information to the front end
-router.get("/profile", authMiddleware.isLoggedIn, function(req, res, next) {
+router.get("/dashboard", authMiddleware.isLoggedIn, function(req, res, next) {
   res.json({
     user: req.user,
     loggedIn: true

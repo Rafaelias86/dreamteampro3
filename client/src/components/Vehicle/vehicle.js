@@ -191,9 +191,9 @@ class Vehicle extends Component {
     
     render() {
         return (
-            <div className="profilePage">
+            <div className="dashboardPage">
                 {this.state.loggedIn ? (
-                    <div className="profileBox bgimg">
+                    <div className="dashboardBox bgimg">
                 
                         <h3 className="aqua-gradient text-white p-2" id="userTitle">Welcome {this.state.user.firstname}</h3>
                         <div>

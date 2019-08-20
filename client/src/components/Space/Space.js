@@ -31,7 +31,7 @@ class Space extends Component {
     
     render() {
         return (
-            <div className="profilePage">
+            <div className="dashboardPage">
                 {this.state.loggedIn ? (
                     <center>
                         <div>

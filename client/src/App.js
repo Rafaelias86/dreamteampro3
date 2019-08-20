@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import NoMatch from "./pages/NoMatch";
 import TopNav from "./components/TopNav";
@@ -25,7 +25,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
               <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
-              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/vehicle" render={(props) => <Auth {...props} action="vehicle" />}/>
               <Route exact path="/pay" component={Payment} />
               <Route exact path="/scan" component={Scan} />

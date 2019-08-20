@@ -167,9 +167,9 @@ class Retrieve extends Component {
     
     render() {
         return (
-            <div className="profilePage">
+            <div className="dashboardPage">
                 {this.state.loggedIn ? (
-                    <div className="profileBox bgimg">
+                    <div className="dashboardBox bgimg">
                 
                         <h1 className="text-black p-2">Retrieve Vehicles</h1>
                         <div>
