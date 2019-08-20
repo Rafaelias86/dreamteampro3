@@ -188,7 +188,7 @@ class Retrieve extends Component {
                                                 <option value="5" >Registration</option>
                                         </select>
                                         </div>
-                                        <div className="form-group mr-2">
+                                        <div className="form-group my-2">
                                             <input type="text" class="form-control" id="myInput" onKeyUp={() => this.myFunction()} placeholder="Value"/>
                                         </div>
                                         </FormGroup>
@@ -196,8 +196,8 @@ class Retrieve extends Component {
 
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
-                                                <table id="myTable" className="table table-bordered w-auto" style={{ marginTop: 20 }}>
-                                                    <thead className="thead-dark">
+                                                <table id="myTable" className="table table-bordered w-auto tempting-azure-gradient" style={{ marginTop: 20 }}>
+                                                    <thead className="">
                                                         <tr className="header">
                                                             <th scope="col">#</th>
                                                             <th scope="col">Cust_ID</th>

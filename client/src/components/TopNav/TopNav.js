@@ -43,9 +43,9 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-                <Navbar className="navbar navbar-expand-lg purple-gradient py-0 text-white"  expand="md">
+                <Navbar className="navbar navbar-expand-lg blue-gradient py-0 text-white"  light expand="md">
                     <div>
-                        <img src="assets/images/ez-valpark3.png" width="300" height="auto" className="animated pulse infinite" alt="Transparent MDB Logo" id="animated-img1"/>
+                        <img src="assets/images/ez-valpark3.png" width="300" height="auto" className="animated" alt="Transparent MDB Logo" id="animated-img1"/>
                         {/* <p className="d-inline py-0 mt-4">Parking Made Easy</p> */}
  
                     </div>

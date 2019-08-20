@@ -38,6 +38,11 @@
     }
 }
 
+.navbar {
+    background-color: rgb(203,251,254); /* For browsers that do not support gradients */
+    height: 80px;
+	//  background-image: linear-gradient(rgb(25,177,164), rgb(25,177,164)); /* Standard syntax (must be last) */
+	}
 
 
 

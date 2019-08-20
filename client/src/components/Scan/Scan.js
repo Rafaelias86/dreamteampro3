@@ -29,7 +29,7 @@ class Scan extends Component {
             });
             const token = window.location.search.match(/\?userToken=(\S+)/);
 
-        fetch('http://localhost:3000/scan', {
+        fetch('https://ez-valpark.herokuapp.com/scan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -71,15 +71,16 @@ class Scan extends Component {
             <div className="profilePage">
                 {this.state.loggedIn ? (
 					<center>
-			            <div className="p-4">
+						<h1 className="text-black">Scan QR Code</h1>
+			            <div>
 			                <QrReader
 			                    delay={this.state.delay}
 			                    onError={this.handleError}
 			                    onScan={this.handleScan}
 			                    style={{ width: "30%", height: "auto" }}
 			                />
-			                <p className="p-1">{this.state.result}</p>
-			                <button onClick={() => window.location.reload()}type="button" class="btn btn-outline-danger mx-1"><i class="fas fa-qrcode mx-2"></i>RE-SCAN</button>
+			                <h5>{this.state.result}</h5>
+			                <button onClick={() => window.location.reload()}type="button" className="btn btn-outline-danger"><i className="fas fa-qrcode m-2"></i>RE-SCAN</button>
 			            </div>
 					</center>
                 ) :
