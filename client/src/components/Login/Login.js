@@ -23,7 +23,7 @@ function Login(props) {
                             <Label for="password">Password</Label>
                             <Input type="password" name="password" id="password" placeholder="password" value={props.password} onChange={props.handleInputChange} />
                         </FormGroup>
-                        <Button color="success" className="btn btn-lg btn-success mt-2" id="loginBtn" onClick={props.handleLogin} block>Login</Button>
+                        <Button className="btn btn-md mt-2" id="loginBtn" onClick={props.handleLogin} block>Login</Button>
                         <p className="signupLink mb-0">
                             <Link to="/signup" className="signupLink">Don't have an account?  Sign up here</Link>
                         </p>

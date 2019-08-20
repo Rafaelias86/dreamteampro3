@@ -72,10 +72,10 @@ export default class Navigation extends Component {
                                     ) : (
                                             <>
                                                 <DropdownItem>
-                                                    <NavLink href="/login">login</NavLink>
+                                                    <NavLink href="/login">Login</NavLink>
                                                 </DropdownItem>
                                                 <DropdownItem>
-                                                    <NavLink href="/signup">signup</NavLink>
+                                                    <NavLink href="/signup">Signup</NavLink>
                                                 </DropdownItem>
                                             </>
                                         )}

@@ -1,58 +1,38 @@
 @import "../../sass/variable.scss";
-
 .footer {
-    // clear:both;
     width: 100%;
     margin: 0 auto;
     padding: 5px;
     font-family: $text-font;
     color: $light-text;
-
-    position: fixed;
-    // height: 50px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-
-    // position: relative;
-}
-    // p {
-    //     // line-height: $footer-height;
-    //     width:100%;
-    //     margin: 0 auto;
-    //     text-align: center;
-    //     display: inline-block;
-    // }
-
+    position: relative;
+    .btn {
+        width:150px;
+    }
+    p {
+        // line-height: $footer-height;
+        width:100%;
+        margin: 0 auto;
+        text-align: center;
+        display: inline-block;
+    }
     
-
     .gh-icon {
         color: $light-text;
         // font-size: 1.3em;
     }
-
     .react-icon {
         font-size: 1.3em;
         -webkit-animation:spin 25s linear infinite;
         -moz-animation:spin 25s linear infinite;
         animation:spin 25s linear infinite;
     }
-
-
-
-.footer {
-    background:rgb(203,251,254); /* For browsers that do not support gradients */
-    height: 80px;
-    //  background-image: linear-gradient(rgb(25,177,164), rgb(25,177,164)); /* Standard syntax (must be last) */
-    }
-    
+}
 // #reactLogo {
 //     -webkit-animation:spin 10s linear infinite;
 //     -moz-animation:spin 10s linear infinite;
 //     animation:spin 10s linear infinite;
 // }
-
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

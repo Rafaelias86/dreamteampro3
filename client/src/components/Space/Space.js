@@ -4,14 +4,15 @@ import "./Space.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
 import API from "../../utils/API";
-
+import Vehicle from "../../components/Vehicle";
 
 class Space extends Component {
     
     state = {
         loggedIn: false,
         user: null,
-        
+        avlSpace:80,
+        carsParked:20,
     }
 
     componentDidMount() {
@@ -37,7 +38,8 @@ class Space extends Component {
                         <div>
                             <Row>
                                 <Col className="lg-4">
-                                    <h1>Available Space</h1>
+                                    <h2>Available Space: {this.state.avlSpace}</h2>
+                                    <h2> Cars Currently Parked: {this.state.carsParked}</h2>
                                 </Col>
                             </Row>  
                         </div>
@@ -47,7 +49,7 @@ class Space extends Component {
                     <div className="noUser">
                         {!this.state.loading ? (
                             <>
-                                <h4>please log in</h4>
+                                <h4>Please login to continue...</h4>
                                 <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
                             </>
                         ) : (

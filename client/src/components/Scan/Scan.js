@@ -80,15 +80,16 @@ class Scan extends Component {
 			                    style={{ width: "30%", height: "auto" }}
 			                />
 			                <h5>{this.state.result}</h5>
-			                <button onClick={() => window.location.reload()}type="button" className="btn btn-outline-danger"><i className="fas fa-qrcode m-2"></i>RE-SCAN</button>
+			                <button onClick={() => window.location.reload()}type="button" className="btn btn-outline-danger mr-4"><i className="fas fa-qrcode m-2"></i>RE-SCAN</button>
 			            </div>
+					<br/><br/><br/><br/><br/>  
 					</center>
                 ) :
 				(
 					<div className="noUser">
 						{!this.state.loading ? (
 							<>
-								<h4>please log in</h4>
+								<h4>Please login to continue...</h4>
 								<Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
 							</>
 						) : (

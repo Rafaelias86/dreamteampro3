@@ -30,6 +30,7 @@ class Home extends Component {
     return (
       <div className="homeBox">
         
+        {/* <img id="homeIcon" src="./assets/images/ferrari-bg.jpeg" alt="homelogo" width="100%" height="250%" /> */}
         
       </div>
     );

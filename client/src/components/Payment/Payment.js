@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "./cards.png";
+import logo1 from "./apple-pay-android-pay-paypal-logos.jpeg";
 import "./Payment.scss";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
@@ -86,7 +87,10 @@ class Payment extends Component {
             <div className="Pay1">
               <div className="Pay-header">
                 <h1 className="my-3">Payment Option</h1>
-                <img src={logo} className="my-3 Pay-logo" alt="logo" />         
+                <img src={logo} className="my-3 Pay-logo" alt="logo" />      
+              </div>
+              <div className="Pay-header">
+                <img src={logo1} className="my-3 Pay-logo" alt="logo1" />           
               </div>
               {/* <p className="Pay-intro">
                 {
@@ -114,7 +118,7 @@ class Payment extends Component {
                     <div className="noUser">
                       {!this.state.loading ? (
                             <>
-                                <h4>please log in</h4>
+                                <h4>Please login to continue...</h4>
                                 <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
                             </>
                         ) : (

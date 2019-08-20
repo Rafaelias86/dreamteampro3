@@ -181,7 +181,7 @@ class Retrieve extends Component {
                                         <FormGroup className="form-inline">
                                         <div className="form-group mr-2">
                                         <label for="find by" className=" font-weight-bold mx-2">Find by:</label>
-                                        <select id="dropdown_change" className="custom-select form-group col-md-8" name="selectBy">
+                                        <select id="dropdown_change" className="custom-select form-group col-md-8 mx-2" name="selectBy">
                                                 <option value="1" selected>Cust_ID</option>
                                                 <option value="3" >Name</option>
                                                 <option value="4" >Phone</option>
@@ -189,8 +189,9 @@ class Retrieve extends Component {
                                         </select>
                                         </div>
                                         <div className="form-group my-2">
-                                            <input type="text" class="form-control" id="myInput" onKeyUp={() => this.myFunction()} placeholder="Value"/>
+                                            <input type="text" class="form-control" id="myInput" onKeyUp={() => this.myFunction()} placeholder="Value"/>                          
                                         </div>
+                                        <button onClick={() => window.location.reload()} type="button" class="btn btn-primary"><i class="fas fa-redo mx-2"></i></button>
                                         </FormGroup>
                                         </div>
 
@@ -276,7 +277,7 @@ class Retrieve extends Component {
                         <div className="noUser">
                             {!this.state.loading ? (
                                 <>
-                                    <h4>please log in</h4>
+                                    <h4>Please login to continue...</h4>
                                     <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
                                 </>
                             ) : (

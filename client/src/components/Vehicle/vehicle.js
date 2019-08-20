@@ -237,7 +237,7 @@ class Vehicle extends Component {
                                             className="loginBtn btn btn-primary" disabled={!(this.state.customerId && this.state.locname && this.state.poc && this.state.pocphone && this.state.vehicleinfo && this.state.spaces && this.state.rate && this.state.comments)}
                                             onClick={(event) => this.handleUpload(event)} color="primary">Submit
                                         </Button>
-                                        <Button className="cancelBtn btn-danger mx-4">Cancel</Button>
+                                        <button type="reset" className="cancelBtn btn btn-danger ">Cancel</button>
                                     </Form>
                                     <br/><br/><br/>
                                 </Col>
@@ -248,23 +248,24 @@ class Vehicle extends Component {
                                         <FormGroup className="form-inline">
                                         <div className="form-group mr-2">
                                         <label for="find by" className=" font-weight-bold mx-2">Find by:</label>
-                                        <select id="dropdown_change" className="custom-select form-group col-md-8" name="selectBy">
+                                        <select id="dropdown_change" className="custom-select form-group col-md-8 mx-2" name="selectBy">
                                                 <option value="1" selected>Cust_ID</option>
                                                 <option value="3" >Name</option>
                                                 <option value="4" >Phone</option>
                                                 <option value="5" >Registration</option>
                                         </select>
                                         </div>
-                                        <div className="form-group my-2">
+                                        <div className="form-group my-2 ">
                                             <input type="text" class="form-control" id="myInput" onKeyUp={() => this.myFunction()} placeholder="Value"/>
-                                        </div>
+                                        </div>  
+                                        <button onClick={() => window.location.reload()} type="button" class="btn btn-primary"><i class="fas fa-redo m-2"></i></button>                                
                                         </FormGroup>
                                         </div>
 
                                         {this.state.vehicles.length ? (
                                             <div className="table-responsive">
                                                 <table id="myTable" className="table table-bordered w-auto tempting-azure-gradient" style={{ marginTop: 20 }}>
-                                                    <thead className="">
+                                                    <thead className="text-center">
                                                         <tr className="header">
                                                             <th scope="col">#</th>
                                                             <th scope="col">Cust_ID</th>
@@ -343,8 +344,8 @@ class Vehicle extends Component {
                         <div className="noUser">
                             {!this.state.loading ? (
                                 <>
-                                    <h4>please log in</h4>
-                                    <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
+                                    <h4>Please login to continue...</h4>
+                                    <Link className="loginLink" to="/login"><Button className="loginBtn"  block>Login</Button></Link>
                                 </>
                             ) : (
                                     <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />
