@@ -5,8 +5,8 @@
     width: 100%;
     margin: 0 auto;
     padding: 5px;
-    font-family: $text-font;
-    color: $light-text;
+    // font-family: $text-font;
+    // color: $light-text;
 
     position: fixed;
     // height: 50px;
@@ -17,7 +17,7 @@
 
     // position: relative;
     .btn {
-        width:150px;
+        width:22%;//it does not fit if its less or more then 22%
     }
 }
 

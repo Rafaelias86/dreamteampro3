@@ -7,6 +7,7 @@ class SMSForm extends Component {
     this.state = {
       message: {
         to: '',
+        // body: '' //use this if you want to pick up the value entered by user else use the line below
         body: 'Friendly Reminder- Dear valued guest, your vehicle is ready for pick up. Please see us at the valet desk.'
       },
       submitting: false,
@@ -80,7 +81,7 @@ class SMSForm extends Component {
             onChange={this.onHandleChange}
           />
         </div>
-        <button className="btn btn-success" type="submit" disabled={this.state.submitting}>
+        <button className="btn btn-success mx-0" type="submit" disabled={this.state.submitting}>
           Send message
         </button>
       </form>

@@ -96,11 +96,11 @@ http.createServer(app).listen(1337, () => {
 //**************************************************************************** */
 //**************************************************************************** */
 //twilio send mgs starts
-app.get('/api/greeting', (req, res) => {
-  const name = req.query.name || 'World';
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
-});
+// app.get('/api/greeting', (req, res) => {
+//   const name = req.query.name || 'World';
+//   res.setHeader('Content-Type', 'application/json');
+//   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+// });
 
 app.post('/api/messages', (req, res) => {
   res.header('Content-Type', 'application/json');
