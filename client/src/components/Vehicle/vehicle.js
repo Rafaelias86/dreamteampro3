@@ -263,8 +263,8 @@ class Vehicle extends Component {
                                         </div>
 
                                         {this.state.vehicles.length ? (
-                                            <div className="table-responsive">
-                                                <table id="myTable" className="table table-bordered w-auto tempting-azure-gradient" style={{ marginTop: 20 }}>
+                                            <div className="table-responsive-md">
+                                                <table id="myTable" className="table table-bordered w-auto table-sm tempting-azure-gradient" cellspacing="0" width="100%" style={{ marginTop: 20 }}>
                                                     <thead className="text-center">
                                                         <tr className="header">
                                                             <th scope="col">#</th>

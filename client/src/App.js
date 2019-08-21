@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Scan from "./components/Scan";
 import Retrieve from "./components/Retrieve";
 import Payment from "./components/Payment";
+import Notify from "./components/Notify";
 import { Container } from 'reactstrap';
 import Space from "./components/Space";
 
@@ -28,6 +29,7 @@ function App() {
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/vehicle" render={(props) => <Auth {...props} action="vehicle" />}/>
               <Route exact path="/pay" component={Payment} />
+              <Route exact path="/notify" component={Notify} />
               <Route exact path="/scan" component={Scan} />
               <Route exact path="/retrieve" component={Retrieve} />
               <Route exact path="/space" component={Space} />

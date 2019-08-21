@@ -9,7 +9,11 @@ const passport = require("passport");
 const logger = require("morgan");
 const flash = require('connect-flash');
 // const sendEmail = require('./models/sendEmail');
-
+//const pino = require('express-pino-logger')();
+const client = require('twilio')(
+  process.env.TWILIO_ACCOUT_SID,
+  process.env.TWILIO_ACCOUNT_TOKEN
+);
 
 //**************************************************************************** */
 require('dotenv').config();
@@ -33,6 +37,8 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
 // const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+//app.use(pino);
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
@@ -87,6 +93,34 @@ http.createServer(app).listen(1337, () => {
   console.log('Express server for twilio is listening on port 1337');
 });
 //twilio receive mgs ends
+//**************************************************************************** */
+//**************************************************************************** */
+//twilio send mgs starts
+app.get('/api/greeting', (req, res) => {
+  const name = req.query.name || 'World';
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+});
+
+app.post('/api/messages', (req, res) => {
+  res.header('Content-Type', 'application/json');
+  client.messages
+    .create({
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: req.body.to,
+      body: req.body.body
+    })
+    .then(() => {
+      res.send(JSON.stringify({ success: true }));
+      console.log("notification sent");
+    })
+    .catch(err => {
+      console.log(err);
+      res.send(JSON.stringify({ success: false }));
+    });
+});
+//twilio send msg ends
+//**************************************************************************** */
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
