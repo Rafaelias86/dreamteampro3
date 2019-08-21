@@ -1,30 +1,31 @@
 @import "../../sass/variable.scss";
 
-.App {
+.Notify {
     text-align: center;
   }
   
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-  }
   
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+  .Notify-header {
+    margin-top: 2%;
+    background-color: rgb(235,247,247);
+    min-height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: black;
+    .fas{
+      color: rgb(15,191,44)
+    }
   }
   
-  .App-link {
+  .Notify-link {
     color: #61dafb;
   }
   
-  @keyframes App-logo-spin {
+  
+  @keyframes Notify-logo-spin {
     from {
       transform: rotate(0deg);
     }

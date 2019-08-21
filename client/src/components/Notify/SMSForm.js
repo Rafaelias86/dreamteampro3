@@ -7,7 +7,7 @@ class SMSForm extends Component {
     this.state = {
       message: {
         to: '',
-        body: ''
+        body: 'Friendly Reminder- Dear valued guest, your vehicle is ready for pick up. Please see us at the valet desk.'
       },
       submitting: false,
       error: false
@@ -61,7 +61,7 @@ class SMSForm extends Component {
       >
         <div>
           <label htmlFor="to">To:</label>
-          <input
+          <input className="border border-success rounded"
             type="tel"
             name="to"
             id="to"
@@ -70,15 +70,17 @@ class SMSForm extends Component {
           />
         </div>
         <div>
-          <label htmlFor="body">Body:</label>
-          <textarea
+          <label htmlFor="body">Message:</label>
+          <textarea className="border border-success rounded p-2"
+            disabled
+            rows = "3" cols = "40" maxlength = "0"
             name="body"
             id="body"
             value={this.state.message.body}
             onChange={this.onHandleChange}
           />
         </div>
-        <button type="submit" disabled={this.state.submitting}>
+        <button className="btn btn-success" type="submit" disabled={this.state.submitting}>
           Send message
         </button>
       </form>
