@@ -54,7 +54,7 @@ class Payment extends Component {
       name: "EZ Valpark",
       description: "Thank you for parking with us",
       // amount: 1000, // 10 USD -> 1000 cents
-      amount: document.getElementById("dollarInput").value.trim(), // 10 USD -> 1000 cents
+      amount: document.getElementById("dollarInput").value.trim() * 100, // 10 USD -> 1000 cents
       currency: "usd",
       opened: onCheckoutOpened.bind(this)
     });
