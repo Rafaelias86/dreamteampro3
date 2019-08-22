@@ -36,7 +36,7 @@ class Notify extends Component {
 			{this.state.loggedIn ? (
 			<header className="Notify-header">
 			<div className="Pay-header">
-                <h1><i className="fas fa-sms mx-3"></i>Notify Customers</h1>
+                <h1><i className="fas fa-sms mx-3"></i>Notification</h1>
             </div>
 			  <SMSForm />
 			</header>
