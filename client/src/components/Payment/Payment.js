@@ -73,7 +73,7 @@ class Payment extends Component {
     }
 
   render() {
-    var buttonText = this.state.isLoading ? "Please wait ..." : "Pay $10";
+    var buttonText = this.state.isLoading ? "Please wait ..." : "Pay Now";
     var buttonClassName =
       "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "");
     if (this.state.stripeToken) {
@@ -81,8 +81,9 @@ class Payment extends Component {
       buttonClassName = "Pay-Now Pay-Now-Disabled";
       //window.location='/dashboard';
     }
+    
     return (
-      <div className="Pay dashboardPage">
+      <div className="container Pay dashboardPage">
           {this.state.loggedIn ? (
             <div className="Pay1">
               <div className="Pay-header">
@@ -104,13 +105,18 @@ class Payment extends Component {
                     ". Continue payment process in the server."}
                 </p>
               ) : null} */}
-              <a
+
+              <div>
+              $<input id="dollarInput" class="currency border border-success rounded mx-1" data-symbol="$" type="number" placeholder="0.00" min="0.01" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" />
+              </div>
+
+              <button
                 className={buttonClassName}
                 href="/pay"
                 onClick={this.onClickPay.bind(this)}
               >
                 {buttonText}
-              </a>
+              </button>
               </div>
 
               ) :

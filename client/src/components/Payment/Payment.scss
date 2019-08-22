@@ -3,7 +3,7 @@
   }
   
   .Pay-logo {
-    height: 60px;
+    height: 55%;
     // width: 40%;
     // height: 65%;
   }
@@ -19,6 +19,18 @@
     font-size: large;
   }
   
+  
+  // #dollarInput
+  // {
+  //   font-size: 1em;
+  //   width: 30%;
+  //   box-sizing: border-box;
+  // }
+
+  #payAmt input {
+    margin: 0 auto;
+  }
+
   @keyframes Pay-logo-spin {
     from {
       transform: rotate(0deg);
