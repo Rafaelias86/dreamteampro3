@@ -91,7 +91,7 @@ class Payment extends Component {
                 <img src={logo} className="my-3 Pay-logo" alt="logo" />      
               </div>
               <div className="Pay-header">
-                <img src={logo1} className="my-3 Pay-logo" alt="logo1" />           
+                <img src={logo1} className="my-3 Pay-logo border border-primary rounded" alt="logo1" />           
               </div>
               {/* <p className="Pay-intro">
                 {
