@@ -8,7 +8,7 @@ class SMSForm extends Component {
       message: {
         to: '',
         // body: '' //use this if you want to pick up the value entered by user else use the line below
-        body: 'Friendly Reminder- Dear valued guest, your vehicle is ready for pick up. Please see us at the valet desk.'
+        body: 'Friendly Reminder- Dear valued guest, your vehicle is ready for pickup. Please see us at the valet desk.'
       },
       submitting: false,
       error: false

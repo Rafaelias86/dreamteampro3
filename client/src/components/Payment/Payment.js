@@ -42,7 +42,8 @@ class Payment extends Component {
 
   onClickPay(e) {
     e.preventDefault();
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true 
+    });
 
     const onCheckoutOpened = () => {
       this.setState({ isLoading: false });
@@ -52,7 +53,8 @@ class Payment extends Component {
     this.stripeHandler.open({
       name: "EZ Valpark",
       description: "Thank you for parking with us",
-      amount: 1000, // 10 USD -> 1000 cents
+      // amount: 1000, // 10 USD -> 1000 cents
+      amount: document.getElementById("dollarInput").value.trim(), // 10 USD -> 1000 cents
       currency: "usd",
       opened: onCheckoutOpened.bind(this)
     });
@@ -106,8 +108,8 @@ class Payment extends Component {
                 </p>
               ) : null} */}
 
-              <div>
-              $<input id="dollarInput" class="currency border border-success rounded mx-1" data-symbol="$" type="number" placeholder="0.00" min="0.01" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" />
+              <div>            
+                $<input id="dollarInput" class="currency border border-success rounded mx-1" data-symbol="$" type="number" placeholder="0.00" min="0.01" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" />
               </div>
 
               <button
