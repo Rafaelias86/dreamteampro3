@@ -60,7 +60,7 @@ app.post('/sms', (req, res) => {
       }
       return log('Email sent!!!');
     });
-    twiml.message('Your vehicle will be ready to pick up within 5 minutes. If you need more time simply reply "Wait". You will receive a text notification once your vehicle is ready for pick up.');
+    twiml.message('Your vehicle will be ready for pickup within 5 minutes. If you need more time simply reply "Wait". You will receive a text notification once your vehicle is ready for pickup.');
   } else if (req.body.Body == 'Wait') {
     // Step 2
     let mailOptions = {
