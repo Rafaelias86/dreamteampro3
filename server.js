@@ -42,8 +42,11 @@ app.use(bodyParser.json());
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
-
-  if (req.body.Body == 'Ready') {
+  
+  // var msgR='Ready';
+  // if (req.body.Body == msgR.trim()) {
+  
+  if ((req.body.Body).trim() == 'Ready') {
 
     // Step 2
     let mailOptions = {
@@ -61,7 +64,7 @@ app.post('/sms', (req, res) => {
       return log('Email sent!!!');
     });
     twiml.message('Your vehicle will be ready for pickup within 5 minutes. If you need more time simply reply "Wait". You will receive a text notification once your vehicle is ready for pickup.');
-  } else if (req.body.Body == 'Wait') {
+  } else if ((req.body.Body).trim() == 'Wait') {
     // Step 2
     let mailOptions = {
       from: '"EZ Valet" <ezvalet2019@gmail.com>',
