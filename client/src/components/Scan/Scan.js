@@ -72,16 +72,17 @@ class Scan extends Component {
                 {this.state.loggedIn ? (
 					<center>
 						<h1 className="text-black">Scan QR Code</h1>
-			            <div>
+			            <div id="scanBox">
 			                <QrReader
 			                    delay={this.state.delay}
 			                    onError={this.handleError}
 			                    onScan={this.handleScan}
-			                    style={{ width: "30%", height: "auto" }}
+			//                     style={{ width: "30%", height: "auto" }}
 			                />
 			                <h5>{this.state.result}</h5>
-			                <button onClick={() => window.location.reload()}type="button" className="btn btn-outline-danger mr-4"><i className="fas fa-qrcode m-2"></i>RE-SCAN</button>
+			                
 			            </div>
+						<button onClick={() => window.location.reload()}type="button" className="btn btn-outline-danger mr-4"><i className="fas fa-qrcode m-2"></i>RE-SCAN</button>
 					<br/><br/><br/><br/><br/>  
 					</center>
                 ) :
