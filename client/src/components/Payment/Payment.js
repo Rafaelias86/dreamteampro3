@@ -89,11 +89,11 @@ class Payment extends Component {
           {this.state.loggedIn ? (
             <div className="Pay1">
               <div className="Pay-header">
-                <h1 className="my-3">Payment Options</h1>
-                <img src={logo} className="mx-4 Pay-logo" alt="logo" />      
+                <h1 className="">Payment Options</h1>
+                <img src={logo} className=" Pay-logo" alt="logo" />      
               </div>
               <div className="Pay-header">
-                <img src={logo1} className="my-4 Pay-logo border border-primary rounded" alt="logo1" />           
+                <img src={logo1} className=" Pay-logo border border-primary rounded" alt="logo1" />           
               </div>
               {/* <p className="Pay-intro">
                 {
