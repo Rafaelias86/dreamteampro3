@@ -57,7 +57,7 @@ module.exports = {
       //twilio create message starts
         client.messages
         .create({
-        body: 'Thank you for parking your vehicle with us. Your e-ticket # is '+req.body.customerId+'. You would need this e-ticket # when you are ready to pick your vehicle back. You can simply reply "Ready" to this message and we will have your car ready for pickup within 5 minutes.',
+        body: 'Thank you for parking your vehicle with us. Your e-ticket # is '+req.body.customerId+'. You will need this e-ticket # when you are ready to pickup your vehicle back. You can simply reply "Ready" to this message and we will have your car ready for pickup within 5 minutes.',
         from: process.env.TWILIO_PHONE_NUMBER,
         mediaUrl: [req.body.mediaUrl],
         to:[req.body.pocphone]
