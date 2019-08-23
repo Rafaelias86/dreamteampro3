@@ -44,9 +44,10 @@ class Payment extends Component {
     e.preventDefault();
     this.setState({ isLoading: true 
     });
-
     const onCheckoutOpened = () => {
       this.setState({ isLoading: false });
+      setTimeout(function(){ document.getElementById('dollarInput').value=''; }, 1000);
+      
     };
 
     // open Stripe Checkout
