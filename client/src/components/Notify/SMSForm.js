@@ -45,6 +45,12 @@ class SMSForm extends Component {
           });
         }
       });
+      setTimeout(function(){ 
+        document.getElementById("successMsg").textContent="✅ Message Sent!";
+      }, 200);
+      // setTimeout(function(){ 
+      //   window.location.reload(); 
+      // }, 3000);
   }
 
   onHandleChange(event) {
@@ -60,6 +66,8 @@ class SMSForm extends Component {
         onSubmit={this.onSubmit}
         className={this.state.error ? 'error sms-form' : 'sms-form'}
       >
+        <div className="text-center"><span id="successMsg"></span></div>
+        
         <div>
           <label htmlFor="to">To:</label>
           <input className="border border-success rounded"

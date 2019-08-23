@@ -74,8 +74,8 @@ class Chart extends Component {
         return (
         <div className="container chartBox dashboardPage">
             {this.state.loggedIn ? (
-            <div className="row text-center justify-content-center">
-                <div className='chart w-75 p-3'>
+            <div className="row">
+                <div className='chart col-md-11'>
                     <Bar
                         data={this.state.chartData}
                         width={100}
@@ -93,7 +93,11 @@ class Chart extends Component {
                             scales: {
                                 yAxes: [{
                                     ticks: {
-                                        beginAtZero: true
+                                        beginAtZero: true,
+                                        steps: 1,
+                                        stepSize: 1,
+                                        stepValue: 1,
+                                        // max: 200
                                     }
                                 }]
                             }

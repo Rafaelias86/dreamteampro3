@@ -80,8 +80,9 @@ class Payment extends Component {
     var buttonClassName =
       "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "");
     if (this.state.stripeToken) {
-      buttonText = "✅ Payment Successful";
+      buttonText = "Make Another Payment";
       buttonClassName = "Pay-Now Pay-Now-Disabled";
+      document.getElementById("pmtSuccessMsg").textContent="✅ Payment Successful!";
       //window.location='/dashboard';
     }
     
@@ -120,7 +121,9 @@ class Payment extends Component {
               >
                 {buttonText}
               </button>
+              <div className="text-center my-4"><span id="pmtSuccessMsg"></span></div>
               </div>
+              
 
               ) :
                 (
