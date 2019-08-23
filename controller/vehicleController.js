@@ -87,6 +87,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
   ,
+  //new Date("2019-08-23T00:08:11.048Z").toLocaleString()
   statsByWeek: function (req, res) {
     let now = new Date();
     let sevenDaysAgo = new Date();
@@ -107,7 +108,7 @@ module.exports = {
           }
         }
       ]).then(results => {
-        // console.log('results', results)
+         console.log('results', results)
         let response = { data: [], labels: [] };
         let grouped = results.map(e => {
           let { year, month, day } = e._id;
