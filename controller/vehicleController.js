@@ -2,6 +2,9 @@ require('dotenv').config();
 const ObjectId = require('mongoose').Types.ObjectId;
 const db = require("../models");
 const nodemailer = require("nodemailer");
+var moment = require('moment');
+moment().format();
+
 const transport = nodemailer.createTransport({
   service: 'Gmail',
   port: 587,
@@ -88,8 +91,10 @@ module.exports = {
   }
   ,
   //new Date("2019-08-23T00:08:11.048Z").toLocaleString()
+  // <td>{moment(vehicle.createdAt).format("MM-DD-YYYY hh:mm A")}</td>
+
   statsByWeek: function (req, res) {
-    let now = new Date();
+    let now = new Date(req.body.createdAt);
     let sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(now.getDate() - 7)
     console.log('now', now)
@@ -103,12 +108,13 @@ module.exports = {
               year: { $year: "$createdAt" },
               month: { $month: "$createdAt" },
               day: { $dayOfMonth: "$createdAt" },
+              timezone: "America/New_York"
             },
             count: { $sum: 1 }
-          }
+          }//timezone: "America/New_York"
         }
       ]).then(results => {
-         console.log('results', results)
+        // console.log('results', results)
         let response = { data: [], labels: [] };
         let grouped = results.map(e => {
           let { year, month, day } = e._id;

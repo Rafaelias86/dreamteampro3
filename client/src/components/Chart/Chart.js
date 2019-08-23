@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Bar } from 'react-chartjs-2';
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom"
+
+
 
 class Chart extends Component {
+
+    state = {
+        loggedIn: false,
+        user: null,
+       
+	}
+
+	componentDidMount() {
+		API.isLoggedIn().then(user => {
+			if (user.data.loggedIn) {
+				this.setState({
+					loggedIn: true,
+					user: user.data.user
+				});
+			}
+		}).catch(err => {
+			console.log(err);
+		});
+		//console.log(this.props)
+	}
+
 
     constructor(props) {
         super(props);
@@ -47,30 +72,49 @@ class Chart extends Component {
 
     render() {
         return (
-            <div className='chart'>
-                <Bar
-                    data={this.state.chartData}
-                    width={100}
-                    height={50}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Daily Report',
-                            fontSize: 25
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
-                        },
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }}
-                />
+        <div className="container chartBox dashboardPage">
+            {this.state.loggedIn ? (
+            <div className="row text-center justify-content-center">
+                <div className='chart w-75 p-3'>
+                    <Bar
+                        data={this.state.chartData}
+                        width={100}
+                        height={50}
+                        options={{
+                            title: {
+                                display: true,
+                                text: 'Weekly Report',
+                                fontSize: 25
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right'
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }}
+                    />
+                    </div>
+                </div>
+                ) :
+                (
+                    <div className="noUser">
+                        {!this.state.loading ? (
+                            <>
+                                <h4>Please login to continue...</h4>
+                                <Link className="loginLink" to="/login"><Button className="loginBtn" color=".bg-success" block>Login</Button></Link>
+                            </>
+                        ) : (
+                                <img id="loadingIcon" src="./assets/images/loading.gif" alt="loading" />
+                            )}
+                    </div>
+                )}
+            <br/><br/><br/><br/><br/>  
             </div>
         )
     }

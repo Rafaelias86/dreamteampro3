@@ -28,11 +28,30 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="homeBox">
-        
-        {/* <img id="homeIcon" src="./assets/images/ferrari-bg.jpeg" alt="homelogo" width="100%" height="250%" /> */}
-        
+
+      <div className="container homeBox">
+          <div className="row text-center justify-content-center">
+            <img className="my-3 center-block" alt="homelogo" src="./assets/images/ez-valet-logo3.jpg" width="270px" height="250px" />
+          </div>
+          <div className="row text-center justify-content-center my-2">
+            <h5 className="text-center text-primary mx-2 p-2">Fully Ticketless Valet Solution</h5> 
+          </div>
+
+          <div className="row text-center justify-content-center"> 
+            <button type="button" class="btn btn-info">Terms & Conditions</button>
+            <button type="button" class="btn btn-success">Privacy Policy</button>
+          </div>
+
+      <br/><br/>
+      <div className="row text-center justify-content-center">
+            <p className="navbar-text my-2 my-lg-0">
+                Copyright  © Ultimate Software Solutions Inc. 2019
+            </p>     
       </div>
+
+      <br/><br/><br/><br/><br/>
+      </div>
+
     );
   }
 }

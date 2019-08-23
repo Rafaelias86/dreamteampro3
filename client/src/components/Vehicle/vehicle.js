@@ -117,8 +117,8 @@ class Vehicle extends Component {
                 comments: this.state.comments,
                 mediaUrl: 'https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=' + encodeURIComponent(qrStrData) + '&choe=UTF-8',
                 rate: this.state.rate,
-                total: this.state.total
-
+                total: this.state.total,
+                //createdAt: this.state.createdAt
             })
                 .then(res => {
                     this.loadVehicles()
