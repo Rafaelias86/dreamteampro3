@@ -88,7 +88,7 @@ class Payment extends Component {
       <div className="container Pay dashboardPage">
           {this.state.loggedIn ? (
             <div className="Pay1">
-              <div className="Pay-header">
+              <div className="Pay-header justify-content-center">
                 <h1 className="">Payment Options</h1>
                 <img src={logo} className=" Pay-logo" alt="logo" />      
               </div>
