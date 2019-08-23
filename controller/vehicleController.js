@@ -86,4 +86,40 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+  ,
+  statsByWeek: function (req, res) {
+    let now = new Date();
+    let sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(now.getDate() - 7)
+    console.log('now', now)
+    console.log('sevenDaysAgo', sevenDaysAgo)
+    db.Vehicle
+      .aggregate([
+        { $match: { createdAt: { $gt: sevenDaysAgo } } },
+        {
+          $group: {
+            _id: {
+              year: { $year: "$createdAt" },
+              month: { $month: "$createdAt" },
+              day: { $dayOfMonth: "$createdAt" },
+            },
+            count: { $sum: 1 }
+          }
+        }
+      ]).then(results => {
+        // console.log('results', results)
+        let response = { data: [], labels: [] };
+        let grouped = results.map(e => {
+          let { year, month, day } = e._id;
+          let key = year + "-" + month + "-" + day;
+          let value = e.count;
+          return { key, value }
+        });
+        response.labels = grouped.map(e => e.key)
+        response.data = grouped.map(e => e.value)
+        // console.log('grouped', grouped)
+        // console.log('response', response)
+        res.status(200).json(response);
+      });
+  }
 };

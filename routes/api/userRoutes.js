@@ -102,7 +102,8 @@ router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
 router.route("/vehicle")
   .get(vehicleController.findAll)
   .post(vehicleController.create);
-
+  router.route("/stats")
+  .get(vehicleController.statsByWeek)
 
  // Matches with "/api/vehicle/:id"
   router.route("/vehicle/:id")

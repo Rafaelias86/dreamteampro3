@@ -41,5 +41,8 @@ export default {
     return axios.put("/api/users/vehicle/" + id, body);
   },
 
+  statsVehicle: function (from, end) {
+    return axios.get("/api/users/stats", { from, end });
+  }
   
   };

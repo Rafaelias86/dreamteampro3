@@ -12,6 +12,7 @@ import Payment from "./components/Payment";
 import Notify from "./components/Notify";
 import { Container } from 'reactstrap';
 import Space from "./components/Space";
+import Chart from "./components/Chart";
 
 
 
@@ -32,6 +33,7 @@ function App() {
               <Route exact path="/notify" component={Notify} />
               <Route exact path="/scan" component={Scan} />
               <Route exact path="/retrieve" component={Retrieve} />
+              <Route exact path="/chart" component={Chart} />
               <Route exact path="/space" component={Space} />
               <Route component={NoMatch} />
             </Switch>
