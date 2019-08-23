@@ -41,7 +41,7 @@ class Scan extends Component {
         })
             .then((res) => {
                 console.log('res', res); 
-                alert('Customer info found !');
+//                 alert('Customer info found !');
             })
             .catch(e => console.log(e));
         }

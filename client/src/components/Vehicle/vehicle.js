@@ -191,7 +191,7 @@ class Vehicle extends Component {
     
     render() {
         return (
-            <div className="dashboardPage">
+            <div className="dashboardPage homeBox">
                 {this.state.loggedIn ? (
                     <div className="dashboardBox bgimg">
                 

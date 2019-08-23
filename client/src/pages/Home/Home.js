@@ -34,7 +34,7 @@ class Home extends Component {
             <img className="my-3 center-block" alt="homelogo" src="./assets/images/ez-valet-logo3.jpg" width="270px" height="250px" />
           </div>
           <div className="row text-center justify-content-center my-2">
-            <h5 className="text-center text-primary mx-2 p-2">Fully Ticketless Valet Solution</h5> 
+            <h5 className="text-center text-primary mx-2 p-2 font-weight-bold">Fully Ticketless Valet Solution</h5> 
           </div>
 
           <div className="row text-center justify-content-center"> 
@@ -42,9 +42,9 @@ class Home extends Component {
             <button type="button" class="btn btn-success">Privacy Policy</button>
           </div>
 
-      <br/><br/>
+      <br/><br/><br/>
       <div className="row text-center justify-content-center">
-            <p className="navbar-text my-2 my-lg-0">
+            <p className="navbar-text my-2 my-lg-0 font-weight-bold">
                 Copyright  © Ultimate Software Solutions Inc. 2019
             </p>     
       </div>
