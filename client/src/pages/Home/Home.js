@@ -36,7 +36,7 @@ class Home extends Component {
           {/* <div className="col-12 bg-light">
           <Clock />
           </div> */}
-          <div className="alert alert-info col-lg-6 p-2 d-flex justify-content-center">
+          <div className="col-lg-6 p-2 d-flex justify-content-center">
            
           <Weather />
           
@@ -55,7 +55,7 @@ class Home extends Component {
             <button type="button" class="btn btn-success">Privacy Policy</button>
           </div>
 
-      <br/><br/>
+      <br/>
       <div className="row text-center justify-content-center">
             <p className="navbar-text my-2 my-lg-0 font-weight-bold">
                 Copyright  © Ultimate Software Solutions Inc. 2019

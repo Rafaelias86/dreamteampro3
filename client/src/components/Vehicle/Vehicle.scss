@@ -2,15 +2,6 @@
 
 .dashboardPage {
     margin: 0 auto;
-    margin-top: 10px;
-    width:100%;
-    height: 300px;
-    font-family: $text-font;
-    
-}
-
-.dashboardPage {
-    margin: 0 auto;
     margin-top: 25px;
 
     .noUser {
@@ -75,53 +66,48 @@ table {
     min-height: 100px;
 }
 
-// #parking3, #ezlogo
-// {
-//     display: none;
+// #myTable {
+//     // border-collapse: collapse; /* Collapse borders */
+//     // width: 100%; /* Full-width */
+//     // border: 1px solid #ddd; /* Add a grey border */
+//     // font-size: 18px; /* Increase font-size */
+//   }
+  
+//   #myTable th, #myTable td {
+//     text-align: left; /* Left-align text */
+//     padding: 12px; /* Add padding */
+//   }
+  
+//   #myTable tr {
+//     /* Add a bottom border to all table rows */
+//     border-bottom: 1px solid #ddd; 
+//   }
+  
+//   #myTable tr.header, #myTable tr:hover {
+//     /* Add a grey background color to the table header and on hover */
+//     background-color:rgb(14,236,180)
+//     ;
+//   }
+ 
+//   th {
+//     background-color: rgb(6, 85, 141);
+//     color: white;
+// } 
+ 
+// table,
+// thead,
+// tr,
+// tbody,
+// th,
+// td {
+//   text-align: center;
 // }
-
-#myTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
-  }
-  
-  #myTable th, #myTable td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
-  }
-  
-  #myTable tr {
-    /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd; 
-  }
-  
-  #myTable tr.header, #myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color:rgb(14,236,180)
-    ;
-  }
-
-  th {
-    background-color: rgb(6, 85, 141);
-    color: white;
-} 
-
-table,
-thead,
-tr,
-tbody,
-th,
-td {
-  text-align: center;
-}
-
-.table td {
-  text-align: center;
-}
-
-.loginBtn
-{
-    background: rgb(4, 132, 172) !important;  
-}
+ 
+// .table td {
+//   text-align: center;
+// }
+ 
+// .loginBtn
+// {
+//     background: rgb(4, 132, 172) !important;  
+// }
