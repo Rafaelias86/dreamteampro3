@@ -6,6 +6,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
+    "moment": "^2.24.0",
+    "moonmoji": "^1.1.10",
     "node-sass": "^4.11.0",
     "qrcode.react": "^0.9.3",
     "react": "^16.7.0",
@@ -16,11 +18,15 @@
     "react-qr-reader": "^2.2.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
+<<<<<<< HEAD
     "reactstrap": "^7.1.0",
     "twilio": "^3.33.3",
     "moonmoji": "^1.1.10",
     "the-moon": "^1.1.0",
     "react-spinners": "^0.5.4"
+=======
+    "reactstrap": "^7.1.0"
+>>>>>>> 888c7607fdf22df67e443de7d817bfc94e069117
   },
   "scripts": {
     "start": "react-scripts start",

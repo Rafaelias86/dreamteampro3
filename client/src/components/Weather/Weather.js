@@ -1,9 +1,13 @@
 import React from "react";
 import moment from "moment";
 import "./Weather.css";
+<<<<<<< HEAD
 require('dotenv').config();
 
 let moonmoji = require("moonmoji")();
+=======
+let moonmoji = require("moonmoji");
+>>>>>>> 888c7607fdf22df67e443de7d817bfc94e069117
 
 class Weather extends React.Component {
   state = {
@@ -108,10 +112,19 @@ class Weather extends React.Component {
   getWeather = async (lat, lon) => {
     const api_call = await fetch(
       `//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
+<<<<<<< HEAD
         "0773cf96a3f9b154957742f3a929e73a"
       }&units=metric`
     );
     const data = await api_call.json();
+=======
+        process.env.REACT_APP_WEATHER_API_KEY
+      }&units=metric`
+    );
+    const data = await api_call.json();
+    console.log({ data });
+    console.log(process.env);
+>>>>>>> 888c7607fdf22df67e443de7d817bfc94e069117
     this.setState({
       lat: lat,
       lon: lon,
@@ -126,6 +139,10 @@ class Weather extends React.Component {
       sunset: moment.unix(data.sys.sunset).format("hh:mm a")
       // sunset: this.getTimeFromUnixTimeStamp(data.sys.sunset),
     });
+<<<<<<< HEAD
+=======
+    console.log(this.temperatureC);
+>>>>>>> 888c7607fdf22df67e443de7d817bfc94e069117
   };
 
   render() {

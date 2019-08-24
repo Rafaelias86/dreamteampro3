@@ -34,6 +34,7 @@
     "express": "^4.16.4",
     "express-pino-logger": "^4.0.0",
     "express-session": "^1.15.6",
+    "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
     "moment": "^2.24.0",
     "mongoose": "^5.4.5",

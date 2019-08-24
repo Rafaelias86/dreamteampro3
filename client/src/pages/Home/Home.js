@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 //import { Button } from "reactstrap";
 import API from "../../utils/API";
+import Weather from "../../components/Weather/Weather";
+import Clock from "../../components/Clock/Clock";
+import GoogleMaps from "../../components/GoogleMap/GoogleMap";
 import "./Home.scss";
 import Weather from "../../components/Weather/Weather";
 import Clock from "../../components/Clock/Clock";
 
 class Home extends Component {
-
   state = {
     loggedIn: false,
     note: ""
@@ -17,19 +19,22 @@ class Home extends Component {
   }
 
   loggedIn = () => {
-    API.isLoggedIn().then(user => {
-      if (user.data.loggedIn) {
-        this.setState({
-          loggedIn: true
-        });
-      }
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+    API.isLoggedIn()
+      .then(user => {
+        if (user.data.loggedIn) {
+          this.setState({
+            loggedIn: true
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
+<<<<<<< HEAD
 
       <div className="container homeBox">
         <div className=" row d-flex justify-content-center">
@@ -60,6 +65,15 @@ class Home extends Component {
             <p className="navbar-text my-2 my-lg-0 font-weight-bold">
                 Copyright  © Ultimate Software Solutions Inc. 2019
             </p>     
+=======
+      <div className="homeBox">
+        <div className="row1">
+          <Clock />
+          <Weather />
+        </div>
+        <GoogleMaps />
+        {/* <img id="homeIcon" src="./assets/images/ferrari-bg.jpeg" alt="homelogo" width="100%" height="250%" /> */}
+>>>>>>> 888c7607fdf22df67e443de7d817bfc94e069117
       </div>
 
       <br/><br/><br/><br/><br/>
