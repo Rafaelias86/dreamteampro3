@@ -21,7 +21,7 @@ In the client side we used the React lifecycle methods to follow best practices 
 
 In the backend we used CRUD operations to manage the database and also followed best practices on our server side in order to make the application run smoothly and error free.
 
-#Technologies used
+# Technologies used
 1. MERN stack.
 2. Bcrypt for password encryption.
 3. Twilio API to send text messages.
@@ -37,8 +37,8 @@ In the backend we used CRUD operations to manage the database and also followed 
 13. SendGrid
 
 
-##Development team
-Amit Singh
-Julio Bell
-Rafael Uzcategui
-Omar Vega
+## Development team
+* Amit Singh
+* Julio Bell
+* Rafael Uzcategui
+* Omar Vega
